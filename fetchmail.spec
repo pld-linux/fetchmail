@@ -9,8 +9,8 @@ Summary(ru):	Утилита извлечения почты с удаленной машины по протоколам POP/IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩmЩ
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Name:		fetchmail
-Version:	5.9.10
-Release:	2
+Version:	5.9.11
+Release:	1
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
