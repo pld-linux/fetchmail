@@ -16,7 +16,7 @@ Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
 Version:	6.2.5
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://catb.org/~esr/fetchmail/%{name}-%{version}.tar.gz
@@ -186,14 +186,14 @@ cp -f /usr/share/automake/config.* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings \
+install -d $RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig} \
 	$RPM_BUILD_ROOT/etc/logrotate.d
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/logrotate.d/%{name}
@@ -233,7 +233,7 @@ fi
 %files -n fetchmailconf
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/fetchmailconf
-%{_applnkdir}/Settings/fetchmailconf.desktop
+%{_desktopdir}/fetchmailconf.desktop
 %{_mandir}/man1/fetchmailconf.1*
 
 %files daemon
