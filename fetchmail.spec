@@ -140,7 +140,7 @@ chmod -R u+w *
 gettextize --copy --force
 aclocal
 autoconf
-automake -a -c -f || :
+cp -f /usr/share/automake/config.* .
 %configure \
 	--enable-nls \
 	--without-included-gettext \
