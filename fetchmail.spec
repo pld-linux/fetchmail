@@ -18,7 +18,7 @@ Source:         ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
 Icon:           fetchmail.gif
 URL:            http://www.tuxedo.org/~esr/fetchmail
 Requires:       smtpdaemon
-Buildroot:      /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Fetchmail is a program that is used to retrieve mail from a remote mail
