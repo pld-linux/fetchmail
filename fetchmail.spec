@@ -24,7 +24,7 @@ URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
 BuildRequires:	gettext-devel
 Requires:	smtpdaemon
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Fetchmail is a program that is used to retrieve mail from a remote mail
