@@ -149,7 +149,7 @@ install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
 	$RPM_BUILD_ROOT%{_applnkdir}/Administration \
 $RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Administration
