@@ -11,7 +11,7 @@ Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN): ╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
 Version:	6.1.0
-Release:	2
+Release:	3
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -31,7 +31,6 @@ BuildRequires:	flex
 BuildRequires:	gettext-devel
 %{!?_without_ssl:BuildRequires:	openssl-devel >= 0.9.6a}
 Requires:	setup >= 2.3
-Requires:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
