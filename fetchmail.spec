@@ -100,8 +100,7 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr \
 	--enable-nls \
-	--without-included-gettext \
-	--with-gssapi=/usr/lib
+	--without-included-gettext
 make
 
 %install
@@ -123,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.bz2 sample.rcfile
+%doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.gz sample.rcfile
 
 %attr(755,root,root) /usr/bin/fetchmail
 /usr/man/man1/fetchmail.1*
