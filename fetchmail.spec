@@ -15,6 +15,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://catb.org/~esr/fetchmail/%{name}-%{version}.tar.gz
+# Source0-md5:	b3544890a2452b5b04c709c65109c43a
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
