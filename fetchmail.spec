@@ -21,6 +21,7 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
+Patch1:		%{name}-from64tobits.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	autoconf
@@ -140,8 +141,9 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 
 %prep
 %setup -q
-%patch0 -p1
 chmod -R u+w *
+%patch0 -p1
+%patch1 -p1
 
 %build
 gettextize --copy --force
