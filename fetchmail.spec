@@ -118,7 +118,7 @@ Summary(uk):	Граф╕чна утил╕та для конф╕гурац╕╖ вподобань для fetchmail
 Group:		Applications/System
 Requires:	%{name} = %{version}
 Requires:	python
-Requires:	tkinter
+Requires:	python-tkinter
 
 %description -n fetchmailconf
 A GUI configurator for generating fetchmail configuration file written
