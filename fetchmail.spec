@@ -219,7 +219,7 @@ fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc FEATURES README NEWS NOTES ABOUT-NLS INSTALL README.NTLM *.html FAQ
+%doc FEATURES README NEWS NOTES README.NTLM *.html FAQ
 %attr(755,root,root) %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
 
