@@ -145,7 +145,7 @@ CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -DSSL_ENABLE"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
-	$RPM_BUILD_ROOT%{_applnkdir}/Administration \
+	$RPM_BUILD_ROOT%{_applnkdir}/Settings \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
