@@ -27,56 +27,58 @@ Requires:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Fetchmail is a program that is used to retrieve mail from a remote mail
-server. It can use the Post Office Protocol (POP) or IMAP (Internet Mail
-Access Protocol) for this, and delivers the mail through the local SMTP
-server (normally sendmail).
+Fetchmail is a program that is used to retrieve mail from a remote
+mail server. It can use the Post Office Protocol (POP) or IMAP
+(Internet Mail Access Protocol) for this, and delivers the mail
+through the local SMTP server (normally sendmail).
 
 %description -l da
-Fetchmail er et gratis, robust, alsidigt og vel-dokumenteret værktøj til
-afhentning og videresending af elektronisk post via TCP/IP baserede
-opkalds-forbindelser (såsom SLIP eller PPP forbindelser). Den henter post
-fra en ekstern post-server, og videresender den til din lokale
-klient-maskines post-system, så den kan læses af almindelige mail klienter
-såsom mutt, elm, pine, (x)emacs/gnus, eller mailx. Der medfølger også et
-interaktivt GUI-baseret konfigurations-program, som kan bruges af
-almindelige brugere.
+Fetchmail er et gratis, robust, alsidigt og vel-dokumenteret værktøj
+til afhentning og videresending af elektronisk post via TCP/IP
+baserede opkalds-forbindelser (såsom SLIP eller PPP forbindelser). Den
+henter post fra en ekstern post-server, og videresender den til din
+lokale klient-maskines post-system, så den kan læses af almindelige
+mail klienter såsom mutt, elm, pine, (x)emacs/gnus, eller mailx. Der
+medfølger også et interaktivt GUI-baseret konfigurations-program, som
+kan bruges af almindelige brugere.
 
 %description -l de
-Fetchmail ist ein freies, vollständiges, robustes und wohldokumentiertes
-Werkzeug zum Abholen und Weiterreichen von E-Mail, gedacht zum Gebrauchüber
-temporäre TCP/IP-Verbindungen (wie z.B. SLIP- oder PPP-Verbindungen). Es
-holt E-Mail von (weit) entfernten Mail-Servern abund reicht sie an das
-Auslieferungssystem der lokalen Client-Maschine weiter, damit sie dann von
-normalen MUAs ("mail user agents") wie mutt, elm, pine, (x)emacs/gnus oder
-mailx gelesen werden kann. Ein interaktiver GUI-Konfigurator auch gut
-geeignet zum Gebrauch durch Endbenutzer wird mitgeliefert.
+Fetchmail ist ein freies, vollständiges, robustes und
+wohldokumentiertes Werkzeug zum Abholen und Weiterreichen von E-Mail,
+gedacht zum Gebrauchüber temporäre TCP/IP-Verbindungen (wie z.B. SLIP-
+oder PPP-Verbindungen). Es holt E-Mail von (weit) entfernten
+Mail-Servern abund reicht sie an das Auslieferungssystem der lokalen
+Client-Maschine weiter, damit sie dann von normalen MUAs ("mail user
+agents") wie mutt, elm, pine, (x)emacs/gnus oder mailx gelesen werden
+kann. Ein interaktiver GUI-Konfigurator auch gut geeignet zum Gebrauch
+durch Endbenutzer wird mitgeliefert.
 
 %description -l es
-Fetchmail es una utilidad gratis, completa, robusta y bien documentada para
-la recepción y reeenvío de correo pensada para ser usada en co- nexiones
-TCP/IP por demanda (como SLIP y PPP). Recibe el correo de servidores
-remotos y lo reenvía al sistema de entrega local, siendo de ese modo
-posible leerlo con programas como mutt, elm, pine, (x)emacs/gnus o mailx.
-Contiene un configurador GUI interactivo pensado para usuarios.
+Fetchmail es una utilidad gratis, completa, robusta y bien documentada
+para la recepción y reeenvío de correo pensada para ser usada en co-
+nexiones TCP/IP por demanda (como SLIP y PPP). Recibe el correo de
+servidores remotos y lo reenvía al sistema de entrega local, siendo de
+ese modo posible leerlo con programas como mutt, elm, pine,
+(x)emacs/gnus o mailx. Contiene un configurador GUI interactivo
+pensado para usuarios.
 
 %description -l fr
-Fetchmail est un programme utilisé pour récupérer le mail depuis un serveur
-distant. Il peut utiliser POP (Post Office Protocol) ou IMAP (Internet Mail
-Access Protocol) pour cela, et achemine le courrier à travers le serveur
-SMTP local (sendmail normal).
+Fetchmail est un programme utilisé pour récupérer le mail depuis un
+serveur distant. Il peut utiliser POP (Post Office Protocol) ou IMAP
+(Internet Mail Access Protocol) pour cela, et achemine le courrier à
+travers le serveur SMTP local (sendmail normal).
 
 %description -l pl
 Fetchmail jest programem do ¶ci±gania poczty ze zdalnych serwerów
-pocztowych. Do ¶ci±gania poczty mo¿e on u¿ywaæ protoko³ów POP (Post Office
-Protocol) lub IMAP (Internet Mail Access Protocol). ¦ci±gniêt± pocztê
-dostarcza odbiorcom poprzez lokalny serwer SMTP.
+pocztowych. Do ¶ci±gania poczty mo¿e on u¿ywaæ protoko³ów POP (Post
+Office Protocol) lub IMAP (Internet Mail Access Protocol). ¦ci±gniêt±
+pocztê dostarcza odbiorcom poprzez lokalny serwer SMTP.
 
 %description -l pt
-fetchmail é um programa que é usado para recuperar mensagens de um servidor
-de mail remoto. Ele pode usar Post Office Protocol (POP) ou IMAP (Internet
-Mail Access Protocol) para isso, e entrega o mail através do servidor local
-SMTP (normalmente sendmail).
+fetchmail é um programa que é usado para recuperar mensagens de um
+servidor de mail remoto. Ele pode usar Post Office Protocol (POP) ou
+IMAP (Internet Mail Access Protocol) para isso, e entrega o mail
+através do servidor local SMTP (normalmente sendmail).
 
 %description -l tr
 fetchmail yazýlýmý, POP veya IMAP desteði veren bir sunucuda yer alan
@@ -94,8 +96,8 @@ Requires:	python
 Requires:	tkinter
 
 %description -n fetchmailconf
-A GUI configurator for generating fetchmail configuration file writen in
-python.
+A GUI configurator for generating fetchmail configuration file writen
+in python.
 
 %description -n fetchmailconf -l de
 Ein interaktiver GUI-Konfigurator für fetchmail in python.
@@ -138,14 +140,14 @@ CFLAGS="$RPM_OPT_FLAGS -DSSL_ENABLE"
 	--enable-RPA \
 	--enable-NTLM \
 	--enable-SDPS \
-	--with-ssl=/usr
+	--with-ssl=%{_prefix}
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
 	$RPM_BUILD_ROOT%{_applnkdir}/Administration \
-	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
+$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
