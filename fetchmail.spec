@@ -139,9 +139,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/rhs/control-panel/*
 %attr(755,root,root) %{_bindir}/fetchmailconf
 %{_mandir}/man1/fetchmailconf.1*
-
-%changelog
-* Mon Jun 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [5.0.4-1]
-- based on RH spec,
-- spec rewrited by PLD team.
