@@ -1,23 +1,23 @@
-Summary:        Remote mail fetch daemon for POP2, POP3, APOP, IMAP
+Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
 Summary(da):	Alsidig POP/IMAP post-afhentnings dæmon
-Summary(de):    Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
+Summary(de):	Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
 Summary(es_AR):	Recolector de correo via POP/IMAP
-Summary(fr):    Démon de récupération du mail pour POP2, POP3, APOP, IMAP.
-Summary(pl):    Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
-Summary(pt_BR): Busca mensagens de um servidor usando POP ou IMAP
-Summary(tr):    POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
-Name:           fetchmail
-Version:        5.0.3
-Release:        1
-Copyright:      freely redistributable
-Group:          Applications/Mail
+Summary(fr):	Démon de récupération du mail pour POP2, POP3, APOP, IMAP.
+Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
+Summary(pt_BR):	Busca mensagens de um servidor usando POP ou IMAP
+Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
+Name:		fetchmail
+Version:	5.0.3
+Release:	1
+Copyright:	freely redistributable
+Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
-Group(pt_BR):   Aplicações/Correio Eletrônico
-Vendor:         Eric S. Raymond <esr@thyrsus.com>
-Source:         ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
-Icon:           fetchmail.gif
-URL:            http://www.tuxedo.org/~esr/fetchmail
-Requires:       smtpdaemon
+Group(pt_BR):	Aplicações/Correio Eletrônico
+Vendor:		Eric S. Raymond <esr@thyrsus.com>
+Source:		ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
+Icon:		fetchmail.gif
+URL:		http://www.tuxedo.org/~esr/fetchmail
+Requires:	smtpdaemon
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -77,13 +77,13 @@ fetchmail yazýlýmý, POP veya IMAP desteði veren bir sunucuda yer alan
 mektuplarýnýzý alýr.
 
 %package -n fetchmailconf
-Summary:        A GUI configurator for generating fetchmail configuration files
+Summary:	A GUI configurator for generating fetchmail configuration files
 Summary(es):	Configurador GUI interactivo por fetchmail
 Summary(fr):	GUI configurateur pour fetchmail
-Summary(pl):    GUI konfigurator do fetchmaila
-Group:          Utilities/System
+Summary(pl):	GUI konfigurator do fetchmaila
+Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Requires:       %{name} = %{version}, python
+Requires:	%{name} = %{version}, python
 
 %description -n fetchmailconf
 A GUI configurator for generating fetchmail configuration file writen in
@@ -117,27 +117,24 @@ echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FEATURES README NEWS NOTES *.html FAQ COPYING
 
+%find_lang fetchmail
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f fetchmail.lang
 %defattr(644,root,root,755)
 %doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.gz sample.rcfile
 
 %attr(755,root,root) %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
 
-%lang(es)    %{_datadir}/locale/es/LC_MESSAGES/fetchmail.mo
-%lang(fr)    %{_datadir}/locale/fr/LC_MESSAGES/fetchmail.mo
-%lang(pl)    %{_datadir}/locale/pl/LC_MESSAGES/fetchmail.mo
-%lang(pt_BR) %{_datadir}/locale/pt_BR/LC_MESSAGES/fetchmail.mo
-
 %files -n fetchmailconf
 %defattr(644,root,root,755)
 /etc/X11/wmconfig/fetchmailconf
 %{_libdir}/rhs/control-panel/*
 %attr(755,root,root) %{_bindir}/fetchmailconf
-%{_mandir}/man1/fetchmailconf.1.gz
+%{_mandir}/man1/fetchmailconf.1*
 
 %changelog
 * Mon Apr 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
