@@ -178,10 +178,20 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 %find_lang %{name}
 
 %post daemon
-DESC="fetchmail daemon"; %chkconfig_add
+/sbin/chkconfig --add fetchmail
+if [ -f /var/lock/subsys/fetchmail ]; then
+	/etc/rc.d/init.d/fetchmail restart >&2
+else
+	echo "Run \"/etc/rc.d/init.d/fetchmail start\" to start fetchmail daemon."
+fi
 
 %preun daemon
-%chkconfig_del
+if [ "$1" = "0" ]; then
+	if [ -f /var/lock/subsys/fetchmail ]; then
+		/etc/rc.d/init.d/fetchmail stop >&2
+	fi
+	/sbin/chkconfig --del fetchmail
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
