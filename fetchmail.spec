@@ -20,6 +20,7 @@ Patch1:		fetchmail-DESTDIR.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
+BuildRequires:	gettext-devel
 Requires:	smtpdaemon
 BuildRoot:	/tmp/%{name}-%{version}-root
 
