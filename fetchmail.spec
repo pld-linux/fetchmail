@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.2.0
-Release:	2
+Release:	3
 Copyright:	freely redistributable
 Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
