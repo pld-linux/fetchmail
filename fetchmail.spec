@@ -109,7 +109,7 @@ install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/lib/rhs/control-panel}
 
 make install prefix=$RPM_BUILD_ROOT/usr
 
-install rh-config/*.{xpm,init} $RPM_BUILD_ROOT/usr/lib/rhs/control-panel                               
+install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel                               
 install rh-config/fetchmailconf.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/fetchmailconf
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
@@ -135,7 +135,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n fetchmailconf
 %defattr(644,root,root,755)
 /etc/X11/wmconfig/fetchmailconf
-/usr/lib/rhs/control-panel/*
+%{_libdir}/rhs/control-panel/*
 %attr(755,root,root) /usr/bin/fetchmailconf
 %{_mandir}/man1/fetchmailconf.1.gz
 
