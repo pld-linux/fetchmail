@@ -27,7 +27,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-%{!?_without_ssl:BuildRequires:	openssl-devel >= 0.9.6k}
+%{!?_without_ssl:BuildRequires:	openssl-devel >= 0.9.6m}
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
