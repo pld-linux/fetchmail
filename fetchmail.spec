@@ -11,7 +11,7 @@ Summary(uk):	õÔÉÌ¦ÔÁ ÏÔÒÉÍÁÎÎÑ ÐÏÛÔÉ Ú ×¦ÄÄÁÌÅÎÏ§ ÍÁÛÉÎÉ ÐÏ ÐÒÏÔÏËÏÌÁÍ POP/IMAP
 Summary(zh_CN):	¹¦ÄÜÇ¿´óµÄ POP/IMAP µç×ÓÓÊ¼þÊÕÈ¡ÊØ»¤½ø³Ì
 Name:		fetchmail
 Version:	6.2.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://catb.org/~esr/fetchmail/%{name}-%{version}.tar.gz
@@ -27,7 +27,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-%{!?_without_ssl:BuildRequires:	openssl-devel >= 0.9.6j}
+%{!?_without_ssl:BuildRequires:	openssl-devel >= 0.9.6k}
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
