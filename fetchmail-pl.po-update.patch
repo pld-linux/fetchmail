@@ -1,23 +1,22 @@
-diff -urN fetchmail-6.2.4.org/po/pl.po fetchmail-6.2.4/po/pl.po
---- fetchmail-6.2.4.org/po/pl.po	2003-09-03 15:17:16.000000000 +0200
-+++ fetchmail-6.2.4/po/pl.po	2003-09-03 15:16:51.000000000 +0200
+--- fetchmail-6.2.4/po/pl.po.orig	2003-08-13 10:29:18.000000000 +0200
++++ fetchmail-6.2.4/po/pl.po	2003-09-05 22:08:16.992211008 +0200
 @@ -1,13 +1,16 @@
 +# Polish translation for fetchmail.
  # Copyright (C) 1998 Free Software Foundation, Inc.
 -# Pawe³ Krawczyk <kravietz@ceti.com.pl>, 1998.
 -#
 +# Pawe³ Krawczyk <kravietz@ceti.com.pl>, 1998,1999.
-+# Jakub Bogusz <qboosh@pld.org.pl>, 2002-2003.
++# Jakub Bogusz <qboosh@pld-linux.org>, 2002-2003.
 +# Adam Go³êbiowski <adamg@pld-linux.org>, 2003.
  msgid ""
  msgstr ""
 -"Project-Id-Version: fetchmail-4.7.7\n"
 -"POT-Creation-Date: 2003-08-13 04:24-0400\n"
 -"PO-Revision-Date: 1999-02-09 17:46+01:00\n"
-+"Project-Id-Version: fetchmail-6.2.3\n"
++"Project-Id-Version: fetchmail-6.2.4\n"
 +"Report-Msgid-Bugs-To: \n"
 +"POT-Creation-Date: 2003-09-03 15:16+0200\n"
-+"PO-Revision-Date: 2003-07-24 23:10+0200\n"
++"PO-Revision-Date: 2003-09-05 22:02+0200\n"
  "Last-Translator: Pawe³ Krawczyk <kravietz@ceti.com.pl>\n"
 -"Language-Team: Polish <pl@li.org>\n"
 +"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -357,6 +356,18 @@ diff -urN fetchmail-6.2.4.org/po/pl.po fetchmail-6.2.4/po/pl.po
  
  #. only used for ETRN
  #: driver.c:1259
+@@ -372,9 +398,9 @@
+ msgstr "Próba po³±czenia z %s\n"
+ 
+ #: driver.c:1263
+-#, fuzzy, c-format
++#, c-format
+ msgid "%d %s (%d %s) for %s"
+-msgstr "%d %s (%d przeczytanych) dla %s."
++msgstr "%d %s (%d %s) dla %s."
+ 
+ #: driver.c:1264 driver.c:1271
+ msgid "messages"
 @@ -385,9 +411,8 @@
  msgstr "list"
  
@@ -364,7 +375,7 @@ diff -urN fetchmail-6.2.4.org/po/pl.po fetchmail-6.2.4/po/pl.po
 -#, fuzzy
  msgid "seen"
 -msgstr " "
-+msgstr ""
++msgstr "widzianych"
  
  #: driver.c:1270
  #, c-format
@@ -1890,7 +1901,7 @@ diff -urN fetchmail-6.2.4.org/po/pl.po fetchmail-6.2.4/po/pl.po
  
  #: transact.c:69
  #, c-format
-@@ -2729,9 +2726,8 @@
+@@ -2729,14 +2726,13 @@
  msgstr "podczas skanowania nag³ówków znaleziono separator listów\n"
  
  #: transact.c:535
@@ -1900,7 +1911,14 @@ diff -urN fetchmail-6.2.4.org/po/pl.po fetchmail-6.2.4/po/pl.po
 +msgstr "podczas skanowania nag³ówków znaleziono b³êdn± liniê nag³ówka\n"
  
  #: transact.c:537
- #, fuzzy, c-format
+-#, fuzzy, c-format
++#, c-format
+ msgid "line: %s"
+-msgstr "Próba po³±czenia z %s\n"
++msgstr "linia: %s"
+ 
+ #: transact.c:1057
+ #, c-format
 @@ -2745,7 +2741,7 @@
  
  #: transact.c:1072
