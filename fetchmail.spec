@@ -177,7 +177,7 @@ install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/fetchmail
 install %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{name}
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
-ln -s fetchmail.1.gz $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
+echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 
 gzip -9nf FEATURES README NEWS NOTES ABOUT-NLS INSTALL README.NTLM *.html FAQ
 
