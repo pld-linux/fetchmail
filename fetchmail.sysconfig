@@ -2,3 +2,6 @@
 
 # Define nice level for fetchmail
 SERVICE_RUN_NICE_LEVEL="+5"
+
+# Fetchmail daemon poll interval (in seconds)
+POLL_INTERVAL="300"
