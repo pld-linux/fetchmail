@@ -139,6 +139,7 @@ chmod -R u+w *
 #%patch1 -p1
 
 %build
+cp -f /usr/share/automake/config.* .
 gettextize --copy --force
 aclocal
 autoconf
