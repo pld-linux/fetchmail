@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt_BR):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.0.3
+Version:	5.0.4
 Release:	1
 Copyright:	freely redistributable
 Group:		Applications/Mail
@@ -96,20 +96,21 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 %setup -q
 
 %build
+autoconf
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure %{_target_platform} \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--enable-nls \
 	--without-included-gettext
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/lib/rhs/control-panel}
+install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,%{_libdir}/rhs/control-panel}
 
-make install prefix=$RPM_BUILD_ROOT/usr
+make install prefix=$RPM_BUILD_ROOT%{_prefix}
 
-install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel                               
+install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
 install rh-config/fetchmailconf.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/fetchmailconf
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
@@ -137,60 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/fetchmailconf.1*
 
 %changelog
-* Mon Apr 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [5.0.1-1]
-- recompiles on new rpm.
-
-* Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [5.0.0-1]
-- removed man group from man pages,
-- more locales (fr) and translations (es_AR, fr, da).
-
-* Wed Jan 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [4.7.6-1d]
-- fix: removed fetchmailconf binary from main package,
-- added pl locale,
-- added bzipping2 %doc.
-
-* Wed Jan 06 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [4.7.4-1]
-- added es_AR locale,
-
-* Mon Dec 28 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [4.7.1-1]
-- added gzipping man pages,
-- added pl translation,
-- Vendor field to "Eric S. Raymond <esr@thyrsus.com>",
-- added pt_BR and de translationc from Eric spec,
-- added fetchmail.mo file with %lang macro,
-- fetchmailconf(1) man page maked as nroff include to 
-  fetchmail(1),
-- removed INSTALL from %doc,
-- added using LDFLAGS="-s" to ./configure enviroment,
-- added "Requires: python" to fetchmailconf subpackage,
-- added URL,
-- added --enable-nls and --without-included-gettext to 
-  ./configure parameters (libint is integrated in glibc),
-- added full %attr description in %files.
-
-* Wed Jul 22 1998 Jeff Johnson <jbj@redhat.com>
-- update to 4.5.3.
-
-* Fri May 08 1998 Cristian Gafton <gafton@redhat.com>
-- fixed spelung eror in the decsriptoin
-
-* Thu May 07 1998 Cristian Gafton <gafton@redhat.com>
-- new version 4.4.4 fixes a lot of bugs
-
-* Fri Apr 24 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Thu Apr 09 1998 Cristian Gafton <gafton@redhat.com>
-- upgraded to 4.4.1
-- buildroot
-
-* Thu Oct 23 1997 Michael Fulbright <msf@redhat.com>
-- Updated to 4.3.2 using SRPM from Eric Raymond
-
-* Thu Jul 10 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
+* Mon Jun 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [5.0.4-1]
+- based on RH spec,
+- spec rewrited by PLD team.
