@@ -5,13 +5,14 @@ Summary(pl):    Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt_BR): Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):    POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:           fetchmail
-Version:        4.7.3
-Release:        1
+Version:        4.7.6
+Release:        1d
 Copyright:      freely redistributable
 Group:          Applications/Mail
 Group(pt_BR):   Aplicações/Correio Eletrônico
 Vendor:         Eric S. Raymond <esr@thyrsus.com>
 Source:         ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
+Patch:		fetchmail-krb5.patch
 Icon:           fetchmail.gif
 URL:            http://www.tuxedo.org/~esr/fetchmail
 Requires:       smtpdaemon
@@ -76,8 +77,9 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr \
 	--enable-nls \
-	--without-included-gettext
-
+	--without-included-gettext \
+	--with-kerberos5=/usr \
+	--with-gssapi=/usr/lib
 make
 
 %install
@@ -92,25 +94,40 @@ rm -f $RPM_BUILD_ROOT/usr/man/man1/fetchmailconf.1
 echo ".so fetchmail.1" > $RPM_BUILD_ROOT/usr/man/man1/fetchmailconf.1
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
+bzip2 -9 FEATURES README NEWS NOTES *.html FAQ COPYING
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
-%doc FEATURES README NEWS NOTES *.html FAQ COPYING sample.rcfile
-%attr(755, root, root) /usr/bin/*
-%attr(644, root,  man) /usr/man/man1/fetchmail.1.gz
-%lang(pt) /usr/share/locale/pt*/LC_MESSAGES/fetchmail.mo
+%defattr(644,root,root,755)
+%doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.bz2 sample.rcfile
+
+%attr(755,root,root) /usr/bin/fetchmail
+%attr(644,root, man) /usr/man/man1/fetchmail.1*
+
+%lang(es)    /usr/share/locale/es/LC_MESSAGES/fetchmail.mo
+%lang(pl)    /usr/share/locale/pl/LC_MESSAGES/fetchmail.mo
+%lang(pt_BR) /usr/share/locale/pt_BR/LC_MESSAGES/fetchmail.mo
 
 %files -n fetchmailconf
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 /etc/X11/wmconfig/fetchmailconf
 /usr/lib/rhs/control-panel/*
-%attr(755, root, root) /usr/bin/fetchmailconf
-%attr(644, root,  man) /usr/man/man1/fetchmailconf.1.gz
+%attr(755,root,root) /usr/bin/fetchmailconf
+%attr(644,root, man) /usr/man/man1/fetchmailconf.1.gz
 
 %changelog
+* Wed Jan 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.7.6-1d]
+- fix: removed fetchmailconf binary from main package,
+- added pl locale,
+- added bzipping2 %doc.
+
+* Wed Jan 06 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.7.4-1]
+- added es_AR locale,
+
 * Mon Dec 28 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [4.7.1-1]
 - added gzipping man pages,
