@@ -191,8 +191,8 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings \
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/fetchmail
-install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/fetchmail
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 install %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{name}
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
@@ -236,6 +236,6 @@ fi
 %files daemon
 %defattr(644,root,root,755)
 %attr(600,root,root) %config(noreplace,missingok) %{_sysconfdir}/fetchmailrc
-%attr(754,root,root) %{_sysconfdir}/rc.d/init.d/fetchmail
-%attr(640,root,root) %config(noreplace) %{_sysconfdir}/sysconfig/fetchmail
+%attr(754,root,root) /etc/rc.d/init.d/fetchmail
+%attr(640,root,root) %config(noreplace) /etc/sysconfig/fetchmail
 %attr(640,root,root) %{_sysconfdir}/logrotate.d/fetchmail
