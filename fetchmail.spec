@@ -164,7 +164,7 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/fetchmail
 install %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{name}
 
-gzip -9nf FEATURES README NEWS NOTES *.html FAQ
+gzip -9nf FEATURES README NEWS NOTES ABOUT-NLS INSTALL README.NTLM *.html FAQ
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 
