@@ -12,20 +12,6 @@ Release:	1
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
-Group(cs):	Aplikace/Po¹ta
-Group(da):	Programmer/Post
-Group(de):	Applikationen/Post
-Group(es):	Aplicaciones/Correo Electrónico
-Group(fr):	Applications/Courrier
-Group(is):	Forrit/Póst
-Group(it):	Applicazioni/Posta
-Group(no):	Applikasjoner/Epost
-Group(pl):	Aplikacje/Poczta
-Group(pt):	Aplicações/Correio Eletrônico
-Group(ru):	ðÒÉÌÏÖÅÎÉÑ/üÌÅËÔÒÏÎÎÁÑ ÐÏÞÔÁ
-Group(sl):	Programi/Po¹tna
-Group(sv):	Tillämpningar/Post
-Group(uk):	ðÒÉËÌÁÄÎ¦ ðÒÏÇÒÁÍÉ/ðÏÛÔÁ
 Source0:	http://www.tuxedo.org/~esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
@@ -111,22 +97,6 @@ Summary(fr):	GUI configurateur pour fetchmail
 Summary(pl):	GUI konfigurator do fetchmaila
 Summary(pt):	Um configurador gráfico para a criação de arquivos de configuração para o fetchmail
 Group:		Applications/System
-Group(cs):	Aplikace/Systém
-Group(da):	Programmer/System
-Group(de):	Applikationen/System
-Group(es):	Aplicaciones/Sistema
-Group(fr):	Applications/Système
-Group(is):	Forrit/Kerfisforrit
-Group(it):	Applicazioni/Sistema
-Group(ja):	¥¢¥×¥ê¥±¡¼¥·¥ç¥ó/¥·¥¹¥Æ¥à
-Group(no):	Applikasjoner/System
-Group(pl):	Aplikacje/System
-Group(pt):	Aplicações/Sistema
-Group(pt_BR):	Aplicações/Sistema
-Group(ru):	ðÒÉÌÏÖÅÎÉÑ/óÉÓÔÅÍÁ
-Group(sl):	Programi/Sistem
-Group(sv):	Tillämpningar/System
-Group(uk):	ðÒÉËÌÁÄÎ¦ ðÒÏÇÒÁÍÉ/óÉÓÔÅÍÁ
 Requires:	%{name} = %{version}
 Requires:	python
 Requires:	tkinter
@@ -152,22 +122,6 @@ para o fetchmail.
 Summary:	SySV init script for demonize fetchmail for sucking emails
 Summary(pl):	SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon
 Group:		Applications/System
-Group(cs):	Aplikace/Systém
-Group(da):	Programmer/System
-Group(de):	Applikationen/System
-Group(es):	Aplicaciones/Sistema
-Group(fr):	Applications/Système
-Group(is):	Forrit/Kerfisforrit
-Group(it):	Applicazioni/Sistema
-Group(ja):	¥¢¥×¥ê¥±¡¼¥·¥ç¥ó/¥·¥¹¥Æ¥à
-Group(no):	Applikasjoner/System
-Group(pl):	Aplikacje/System
-Group(pt):	Aplicações/Sistema
-Group(pt_BR):	Aplicações/Sistema
-Group(ru):	ðÒÉÌÏÖÅÎÉÑ/óÉÓÔÅÍÁ
-Group(sl):	Programi/Sistem
-Group(sv):	Tillämpningar/System
-Group(uk):	ðÒÉËÌÁÄÎ¦ ðÒÏÇÒÁÍÉ/óÉÓÔÅÍÁ
 Requires:	%{name} = %{version}
 Prereq:		rc-scripts >= 0.2.0
 Prereq:		/sbin/chkconfig
