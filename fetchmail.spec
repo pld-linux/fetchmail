@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.9.0
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -21,6 +21,7 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
+Patch1:		%{name}-pl.po_typo.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	autoconf
@@ -97,6 +98,7 @@ Summary:	A GUI configurator for generating fetchmail configuration files
 Summary(es):	Configurador GUI interactivo por fetchmail
 Summary(fr):	GUI configurateur pour fetchmail
 Summary(pl):	GUI konfigurator do fetchmaila
+Summary(pt):	Um configurador gráfico para a criação de arquivos de configuração para o fetchmail
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
@@ -117,6 +119,10 @@ Configurador gráfico para fetchmail escrito en python.
 %description -n fetchmailconf -l pl 
 GUI konfigurator do fetchmaila napisany w pythonie.
 
+%description -l pt -n fetchmailconf
+Um configurador gráfico para a criação de arquivos de configuração
+para o fetchmail.
+
 %package daemon
 Summary:	SySV init script for demonize fetchmail for sucking emails
 Summary(pl):	SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon
@@ -135,6 +141,7 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 chmod -R u+w *
 
 %build
