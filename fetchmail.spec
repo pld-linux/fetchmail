@@ -23,6 +23,8 @@ Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
 BuildRequires:	gettext-devel
+BuildRequires:	flex
+BuildRequires:	bison
 Requires:	smtpdaemon
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -139,7 +141,8 @@ CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -DSSL_ENABLE"
 	--enable-RPA \
 	--enable-NTLM \
 	--enable-SDPS \
-	--with-ssl=%{_prefix}
+	--with-ssl=%{_prefix} \
+	--without-kerberos
 %{__make}
 
 %install
