@@ -1,5 +1,5 @@
 /var/log/fetchmail {
     postrotate
-	/usr/bin/killall -HUP fetchmaild || :
+	/bin/killall -HUP fetchmaild || :
     endscript
 }
