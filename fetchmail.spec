@@ -97,7 +97,7 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=/usr \
 	--enable-nls \
 	--without-included-gettext
