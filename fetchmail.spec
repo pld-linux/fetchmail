@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(ru):	Утилита извлечения почты с удаленной машины по протоколам POP/IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩmЩ
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
-Summary(zh_CN): ╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
+Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
 Version:	6.2.3
 Release:	1
