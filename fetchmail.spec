@@ -151,7 +151,7 @@ Summary(pl):	Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako de
 Group:		Applications/System
 Requires:	%{name} = %{version}
 PreReq:		rc-scripts >= 0.2.0
-PreReq:		/sbin/chkconfig
+Requires(post,preun):	/sbin/chkconfig
 
 %description daemon
 SysV init script for demonize fetchmail for sucking emails.
