@@ -119,7 +119,7 @@ Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Requires:	%{name} = %{version}
-Requires:	rc-scripts >= 0.2.0
+Prereq:		rc-scripts >= 0.2.0
 
 %description daemon
 SySV init script for demonize fetchmail for sucking emails.
