@@ -145,11 +145,11 @@ Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo
 para o fetchmail.
 
 %description -n fetchmailconf -l ru
-Fetchmailconf - это программа на TCL/TK для конфигурации вашего файла
+Fetchmailconf - это программа на Tcl/Tk для конфигурации вашего файла
 предпочтений ~/.fetchmailrc.
 
 %description -n fetchmailconf -l uk
-Fetchmailconf - це програма на TCL/TK для конф╕гурац╕╖ вашого файла
+Fetchmailconf - це програма на Tcl/Tk для конф╕гурац╕╖ вашого файла
 вподобань ~/.fetchmailrc.
 
 %package daemon
