@@ -170,7 +170,7 @@ chmod -R u+w *
 
 %build
 %{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 cp -f /usr/share/automake/config.* .
 %configure \
