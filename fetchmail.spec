@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.8.1
-Release:	2
+Release:	3
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -23,7 +23,7 @@ Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
-%{!?bcond_off_ssl:BuildRequires:	openssl-devel >= 0.9.4-2}
+%{!?bcond_off_ssl:BuildRequires:	openssl-devel >= 0.9.6a}
 BuildRequires:	gettext-devel
 BuildRequires:	flex
 BuildRequires:	bison
