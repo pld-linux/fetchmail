@@ -34,7 +34,10 @@ case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/fetchmail ]; then
 		msg_starting "fetchmail"
-		daemon fetchmail -d "$POLL_INTERVAL" -f /etc/fetchmailrc
+
+		is_yes $VERBOSE_LOGGING && OPTIONS="-v"
+
+		daemon fetchmail -d "$POLL_INTERVAL" $OPTIONS -f /etc/fetchmailrc
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/fetchmail
 	else

@@ -5,3 +5,6 @@ SERVICE_RUN_NICE_LEVEL="+5"
 
 # Fetchmail daemon poll interval (in seconds)
 POLL_INTERVAL="300"
+
+# Log POP/IMAP/SMTP chat (leave empty, or put yes/no/true/false)
+VERBOSE_LOGGING="no"
