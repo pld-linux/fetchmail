@@ -1,0 +1,5 @@
+/var/log/messages {
+    postrotate
+	/usr/bin/killall -HUP fetchmaild || :
+    endscript
+}
