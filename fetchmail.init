@@ -31,7 +31,7 @@ case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/fetchmail ]; then
 		msg_starting "fetchmail"
-		daemon fetchmail
+		daemon fetchmail -f /etc/fetchmailrc
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/fetchmail
 	else
@@ -40,7 +40,7 @@ case "$1" in
 	fi
         ;;
   stop)
-	if [ -f /var/lock/subsys/syslogd ]; then
+	if [ -f /var/lock/subsys/fetchmail ]; then
 		msg_stopping "fetchmail"
 		killproc fetchmail
 		rm -f /var/lock/subsys/fetchmail >/dev/null 2>&1
