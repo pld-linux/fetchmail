@@ -7,9 +7,9 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.3.0
-Release:	2
-Copyright:	freely redistributable
+Version:	5.3.2
+Release:	1
+License:	GPL
 Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
 Group(pt):	Aplicações/Correio Eletrônico
@@ -19,7 +19,6 @@ Source1:	fetchmailconf.desktop
 Source2:	fetchmail.sysconfig
 Source3:	fetchmail.init
 Patch0:		fetchmail-DESTDIR.patch
-Patch1:		fetchmail-IPv6.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
@@ -105,10 +104,22 @@ Configurador gráfico para fetchmail escrito en python
 %description -n fetchmailconf -l pl 
 GUI konfigurator do fetchmaila napisany w pythonie.
 
+%package daemon
+Summary:	SySV init script for demonize fetchmail for sucking emails
+Summary(pl):	SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon
+Group:		Utilities/System
+Group(pl):	Narzêdzia/System
+Requires:	%{name} = %{version}
+
+%description daemon
+SySV init script for demonize fetchmail for sucking emails.
+
+%description -l pl daemon
+SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
+
 %prep
 %setup -q
 %patch0 -p0
-%patch1 -p1
 
 %build
 chmod -R u+w *
@@ -141,17 +152,25 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	FEATURES README NEWS NOTES *.html FAQ COPYING
+	FEATURES README NEWS NOTES *.html FAQ
+
+touch $RPM_BUILD_ROOT/etc/fetchmailrc
 
 %find_lang %{name}
 
-%post
+%post daemon
 /sbin/chkconfig --add fetchmail
-/etc/rc.d/init.d/fetchmail restart >&2
+if [ -f /var/lock/subsys/fetchmail ]; then
+	/etc/rc.d/init.d/fetchmail restart >&2
+else
+	echo "Run \"/etc/rc.d/init.d/httpd start\" to start fetchamil daemon."
+fi
 
-%preun
+%preun daemon
 if [ "$1" = "0" ]; then
-	/etc/rc.d/init.d/fetchmail stop >&2
+	if [ -f /var/lock/subsys/fetchmail ]; then
+		/etc/rc.d/init.d/fetchmail stop >&2
+	fi
 	/sbin/checkconfig --del fetchmail
 fi
 
@@ -160,14 +179,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.gz sample.rcfile
+%doc *.gz sample.rcfile
 
 %attr(755,root,root) %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
-
-# %attr(600,root,root) %config(noreplace,missingok) /etc/fetchmailrc
-%attr(755,root,root) /etc/rc.d/init.d/fetchmail
-%config(noreplace) /etc/sysconfig/fetchmail
 
 %files -n fetchmailconf
 %defattr(644,root,root,755)
@@ -176,3 +191,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/fetchmailconf.1*
 
 /usr/X11R6/share/applnk/Administration/fetchmailconf.desktop
+
+%files daemon
+%attr(600,root,root) %config(noreplace,missingok) /etc/fetchmailrc
+%attr(754,root,root) /etc/rc.d/init.d/fetchmail
+%attr(640,root,root) %config(noreplace) /etc/sysconfig/fetchmail
