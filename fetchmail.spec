@@ -11,7 +11,7 @@ Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
 Version:	6.2.5
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://catb.org/~esr/fetchmail/%{name}-%{version}.tar.gz
@@ -21,6 +21,7 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-pl.po-update.patch
+Patch1:		%{name}-home_etc.patch
 Icon:		fetchmail.gif
 URL:		http://www.catb.org/~esr/fetchmail/
 BuildRequires:	automake
@@ -162,6 +163,7 @@ Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
