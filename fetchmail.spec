@@ -161,7 +161,6 @@ Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona.
 
 %prep
 %setup -q
-#chmod -R u+w *
 %patch0 -p1
 %patch1 -p1
 
