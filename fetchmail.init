@@ -33,6 +33,7 @@ fi
 # Check that fetchmailrc exists.
 [ -f /etc/fetchmailrc ] || exit 0
 
+RETVAL=0
 # See how we were called.
 case "$1" in
   start)
@@ -46,7 +47,6 @@ case "$1" in
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/fetchmail
 	else
 		msg_already_running fetchmail
-		exit 1
 	fi
 	;;
   stop)
@@ -56,31 +56,22 @@ case "$1" in
 		rm -f /var/lock/subsys/fetchmail >/dev/null 2>&1
 	else
 		msg_not_running "fetchmail"
-		exit 1
 	fi	
 	;;
   restart)
 	$0 stop
 	$0 start
+	exit $?
 	;;
-  reload)
+  reload|force-reload)
 	if [ -f /var/lock/subsys/fetchmail ]; then
 		msg_reloading "fetchmail"
 		killproc fetchmail -HUP
 		RETVAL=$?
 	else
-		msg_not_running fetchmail
-		exit 1
+		msg_not_running fetchmail >&2
+		exit 7
 	fi
-	;;
-  force-reload)
-	# if program allows reloading without stopping
-	$0 reload
-	exit $?
-
-	# or if it doesn't
-	$0 stop && $0 start
-	exit $?
 	;;
   status)
 	status fetchmail
@@ -88,7 +79,7 @@ case "$1" in
 	;;
   *)
 	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
-	exit 1
+	exit 3
 esac
 
 exit $RETVAL
