@@ -7,10 +7,11 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.5.2
+Version:	5.5.3
 Release:	1
 License:	GPL
 Group:		Applications/Mail
+Group(de):	Applikationen/Post
 Group(pl):	Aplikacje/Poczta
 Group(pt):	Aplicações/Correio Eletrônico
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
@@ -89,8 +90,9 @@ Summary:	A GUI configurator for generating fetchmail configuration files
 Summary(es):	Configurador GUI interactivo por fetchmail
 Summary(fr):	GUI configurateur pour fetchmail
 Summary(pl):	GUI konfigurator do fetchmaila
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	%{name} = %{version}
 Requires:	python
 Requires:	tkinter
@@ -111,8 +113,9 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 %package daemon
 Summary:	SySV init script for demonize fetchmail for sucking emails
 Summary(pl):	SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	%{name} = %{version}
 Requires:	rc-scripts >= 0.2.0
 
@@ -131,8 +134,7 @@ chmod -R u+w *
 gettextize --copy --force
 aclocal
 autoconf
-LDFLAGS="-s"; export LDFLAGS
-CFLAGS="$RPM_OPT_FLAGS -DSSL_ENABLE"
+CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -DSSL_ENABLE"
 %configure \
 	--enable-nls \
 	--without-included-gettext \
@@ -156,8 +158,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Administration
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	FEATURES README NEWS NOTES *.html FAQ
+gzip -9nf FEATURES README NEWS NOTES *.html FAQ
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 
