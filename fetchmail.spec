@@ -23,7 +23,7 @@ Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
-%{!?bcond_off_ssl:BuildRequires:	openssl-devel >= 0.9.6a}
+%{!?_without_ssl:BuildRequires:	openssl-devel >= 0.9.6a}
 BuildRequires:	gettext-devel
 BuildRequires:	flex
 BuildRequires:	bison
@@ -144,8 +144,8 @@ gettextize --copy --force
 	--enable-RPA \
 	--enable-NTLM \
 	--enable-SDPS \
-	%{!?bcond_off_ssl:--with-ssl=%{_prefix}} \
-	%{?bcond_off_ssl:--without-ssl} \
+	%{!?_without_ssl:--with-ssl=%{_prefix}} \
+	%{?_without_ssl:--without-ssl} \
 	--without-kerberos
 %{__make}
 
