@@ -243,4 +243,4 @@ fi
 %attr(600,root,root) %config(noreplace,missingok) %verify(not md5 size mtime) %{_sysconfdir}/fetchmailrc
 %attr(754,root,root) /etc/rc.d/init.d/fetchmail
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/sysconfig/fetchmail
-%attr(640,root,root) /etc/logrotate.d/fetchmail
+%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/logrotate.d/fetchmail
