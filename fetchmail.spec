@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt_BR):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.0.5
+Version:	5.0.7
 Release:	1
 Copyright:	freely redistributable
 Group:		Applications/Mail
@@ -99,9 +99,8 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 
 %build
 autoconf
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix} \
+LDFLAGS="-s"; export LDFLAGS
+%configure \
 	--enable-nls \
 	--without-included-gettext \
 	--enable-inet6
