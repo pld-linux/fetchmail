@@ -115,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
   [4.7.1-1]
 - added gzipping man pages,
 - added pl translation,
-- Vendor dield to "Eric S. Raymond <esr@thyrsus.com>",
+- Vendor field to "Eric S. Raymond <esr@thyrsus.com>",
 - added pt_BR and de translationc from Eric spec,
 - added fetchmail.mo file with %lang macro,
 - fetchmailconf(1) man page maked as nroff include to 
