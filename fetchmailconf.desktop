@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Fetchmail Configuration
+Name[pl]=Konfiguracja programu Fetchmail
+Comment=A graphical configuration tool for Fetchmail
+Comment[pl]=Graficzne narzêdzie konfiguracyjne dla Fechmail
+Exec=fetchmailconf
+Terminal=0
+Type=Application
