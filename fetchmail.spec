@@ -24,6 +24,7 @@ URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
 BuildRequires:	gettext-devel
 Requires:	smtpdaemon
+Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
