@@ -14,8 +14,10 @@ Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
 Group(pt_BR):	Aplicações/Correio Eletrônico
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
-Source:		ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
-Patch:		fetchmail-glibc.patch
+Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
+Source1:	fetchmailconf.desktop
+Patch0:		fetchmail-glibc.patch
+Patch1:		fetchmail-DESTDIR.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail
 Requires:	smtpdaemon
@@ -95,9 +97,11 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p0
 
 %build
+gettextize --copy --force
 autoconf
 LDFLAGS="-s"; export LDFLAGS
 %configure \
@@ -108,14 +112,14 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,%{_libdir}/rhs/control-panel}
+install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
+	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/Administration
 
-make install prefix=$RPM_BUILD_ROOT%{_prefix}
+make install DESTDIR=$RPM_BUILD_ROOT
 
 install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
-install rh-config/fetchmailconf.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/fetchmailconf
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
-echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Administration
+
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FEATURES README NEWS NOTES *.html FAQ COPYING
@@ -134,7 +138,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n fetchmailconf
 %defattr(644,root,root,755)
-/etc/X11/wmconfig/fetchmailconf
 %{_libdir}/rhs/control-panel/*
 %attr(755,root,root) %{_bindir}/fetchmailconf
 %{_mandir}/man1/fetchmailconf.1*
+
+/usr/X11R6/share/applnk/Administration/fetchmailconf.desktop
