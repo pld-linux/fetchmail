@@ -10,7 +10,7 @@ Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩm
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Name:		fetchmail
 Version:	5.9.10
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -20,6 +20,7 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
+Patch1:		%{name}-ac25x.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	autoconf
@@ -28,9 +29,8 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
 %{!?_without_ssl:BuildRequires:	openssl-devel >= 0.9.6a}
-BuildRequires:	sed
-Requires:	smtpdaemon
 Requires:	setup >= 2.3
+Requires:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -165,6 +165,7 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 %setup -q
 chmod -R u+w *
 %patch0 -p1
+%patch1 -p1
 
 %build
 gettextize --copy --force
@@ -207,6 +208,9 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 
 %find_lang %{name}
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post daemon
 /sbin/chkconfig --add fetchmail
 if [ -f /var/lock/subsys/fetchmail ]; then
@@ -222,9 +226,6 @@ if [ "$1" = "0" ]; then
 	fi
 	/sbin/chkconfig --del fetchmail
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
