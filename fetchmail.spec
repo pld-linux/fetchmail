@@ -111,10 +111,10 @@ make install prefix=$RPM_BUILD_ROOT/usr
 
 install rh-config/*.{xpm,init} $RPM_BUILD_ROOT/usr/lib/rhs/control-panel                               
 install rh-config/fetchmailconf.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/fetchmailconf
-rm -f $RPM_BUILD_ROOT/usr/man/man1/fetchmailconf.1
-echo ".so fetchmail.1" > $RPM_BUILD_ROOT/usr/man/man1/fetchmailconf.1
+rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
+echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FEATURES README NEWS NOTES *.html FAQ COPYING
 
 %clean
@@ -125,7 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.gz sample.rcfile
 
 %attr(755,root,root) /usr/bin/fetchmail
-/usr/man/man1/fetchmail.1*
+%{_mandir}/man1/fetchmail.1*
 
 %lang(es)    /usr/share/locale/es/LC_MESSAGES/fetchmail.mo
 %lang(fr)    /usr/share/locale/fr/LC_MESSAGES/fetchmail.mo
@@ -137,7 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 /etc/X11/wmconfig/fetchmailconf
 /usr/lib/rhs/control-panel/*
 %attr(755,root,root) /usr/bin/fetchmailconf
-/usr/man/man1/fetchmailconf.1.gz
+%{_mandir}/man1/fetchmailconf.1.gz
 
 %changelog
 * Mon Apr 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
