@@ -5,9 +5,11 @@ Summary(es):	Recolector de correo via POP/IMAP
 Summary(fr):	DИmon de rИcupИration du mail pour POP2, POP3, APOP, IMAP
 Summary(pl):	Zdalny demon pocztowy do protokoЁСw POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
+Summary(ru):	Утилита извлечения почты с удаленной машины по протоколам POP/IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩmЩ
+Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Name:		fetchmail
-Version:	5.9.9
+Version:	5.9.10
 Release:	1
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
@@ -85,9 +87,27 @@ servidor de mail remoto. Ele pode usar Post Office Protocol (POP) ou
 IMAP (Internet Mail Access Protocol) para isso, e entrega o mail
 atravИs do servidor local SMTP (normalmente sendmail).
 
+%description -l ru
+Fetchmail - это утилита извлечения почты с удаленной машины и
+форвардинга, предназначенная для использования на on-demand TCP/IP
+соединениях, таких как SLIP или PPP соеднения. Fetchmail поддерживает
+все используемые в настоящее время в Инернете протоколы удаленной
+почты (POP2, POP3, RPOP, APOP, KPOP, все IMAPы, ESMTP ETRN). Затем
+Fetchmail форвардит извлеченную почту через SMTP, чтобы ви могли
+прочитать ее своим любимым почтовым клиентом.
+
 %description -l tr
 fetchmail yazЩlЩmЩ, POP veya IMAP desteПi veren bir sunucuda yer alan
 mektuplarЩnЩzЩ alЩr.
+
+%description -l uk
+Fetchmail - це утил╕та отримання пошти з в╕ддалено╖ машини та
+форвардингу, призначена для використання на on-demand TCP/IP
+з'╓днаннях, таких як SLIP чи PPP з'╓днання. Fetchmail п╕дтриму╓ вс╕
+використовуван╕ на сьогодн╕ протоколи в╕ддалено╖ пошти (POP2, POP3,
+RPOP, APOP, KPOP, вс╕ IMAPи, ESMTP ETRN). П╕сля отримання Fetchmail
+форвардить пошту через SMTP, щоб ви могли прочитати ╖╖ сво╖м улюбленим
+поштовим кл╕╓нтом.
 
 %package -n fetchmailconf
 Summary:	A GUI configurator for generating fetchmail configuration files
@@ -95,6 +115,8 @@ Summary(es):	Configurador GUI interactivo por fetchmail
 Summary(fr):	GUI configurateur pour fetchmail
 Summary(pl):	GUI konfigurator do fetchmaila
 Summary(pt):	Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo para o fetchmail
+Summary(ru):	Графическая утилита для конфигурации предпочтений для fetchmail
+Summary(uk):	Граф╕чна утил╕та для конф╕гурац╕╖ вподобань для fetchmail
 Group:		Applications/System
 Requires:	%{name} = %{version}
 Requires:	python
@@ -116,6 +138,14 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 %description -n fetchmailconf -l pt
 Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo
 para o fetchmail.
+
+%description -n fetchmailconf
+Fetchmailconf - это программа на TCL/TK для конфигурации вашего файла
+предпочтений ~/.fetchmailrc.
+
+%description -n fetchmailconf
+Fetchmailconf - це програма на TCL/TK для конф╕гурац╕╖ вашого файла
+вподобань ~/.fetchmailrc.
 
 %package daemon
 Summary:	SySV init script for demonize fetchmail for sucking emails
