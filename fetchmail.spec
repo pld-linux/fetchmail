@@ -22,7 +22,7 @@ Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-pl.po-update.patch
 Icon:		fetchmail.gif
-URL:		http://www.tuxedo.org/~esr/fetchmail/
+URL:		http://www.catb.org/~esr/fetchmail/
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
