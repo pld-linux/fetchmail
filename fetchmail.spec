@@ -14,7 +14,7 @@ Version:	6.2.1
 Release:	2
 License:	GPL
 Group:		Applications/Mail
-Source0:	http://www.tuxedo.org/~esr/fetchmail/%{name}-%{version}.tar.gz
+Source0:	http://catb.org/~esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
