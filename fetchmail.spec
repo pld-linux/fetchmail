@@ -7,8 +7,8 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.2.0
-Release:	3
+Version:	5.2.1
+Release:	1
 Copyright:	freely redistributable
 Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
@@ -16,7 +16,7 @@ Group(pt):	Aplicações/Correio Eletrônico
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	fetchmailconf.desktop
-Patch0:		fetchmail-glibc.patch
+Patch0:		fetchmail-typo.patch
 Patch1:		fetchmail-DESTDIR.patch
 Patch2:		fetchmail-ssl.patch
 Icon:		fetchmail.gif
