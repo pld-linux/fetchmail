@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.8.1
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -163,6 +163,9 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/fetchmail
 install %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{name}
+
+rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
+ln -s fetchmail.1.gz $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 
 gzip -9nf FEATURES README NEWS NOTES ABOUT-NLS INSTALL README.NTLM *.html FAQ
 
