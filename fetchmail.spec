@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.0.8
+Version:	5.1.0
 Release:	1
 Copyright:	freely redistributable
 Group:		Applications/Mail
@@ -19,7 +19,7 @@ Source1:	fetchmailconf.desktop
 Patch0:		fetchmail-glibc.patch
 Patch1:		fetchmail-DESTDIR.patch
 Icon:		fetchmail.gif
-URL:		http://www.tuxedo.org/~esr/fetchmail
+URL:		http://www.tuxedo.org/~esr/fetchmail/
 Requires:	smtpdaemon
 BuildRoot:	/tmp/%{name}-%{version}-root
 
