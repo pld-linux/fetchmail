@@ -1,0 +1,10 @@
+--- fetchmail-5.7.5/pop3.c~	Tue Mar 13 20:58:42 2001
++++ fetchmail-5.7.5/pop3.c	Tue Mar 20 10:21:08 2001
+@@ -274,6 +274,7 @@
+ 	    return(do_cram_md5(sock, "AUTH", ctl));
+ 
+ 	/* ordinary validation, no one-time password or RPA */ 
++	strncpy(shroud,ctl->password,sizeof(shroud));
+ 	gen_transact(sock, "USER %s", ctl->remotename);
+ 	ok = gen_transact(sock, "PASS %s", ctl->password);
+ 	break;

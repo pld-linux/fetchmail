@@ -1,0 +1,322 @@
+--- fetchmail-6.2.2/po/fr.po.orig	2003-03-01 06:18:36.000000000 +0100
++++ fetchmail-6.2.2/po/fr.po	2003-05-10 13:09:26.000000000 +0200
+@@ -65,13 +65,13 @@
+ "\n"
+ "The following oversized messages remain on the mail server %s:"
+ msgstr ""
+-"Subject: Alerte de Fetchmail: messages trop grands.\r\n"
+-"\r\n"
++"Subject: Alerte de Fetchmail: messages trop grands.\n"
++"\n"
+ "Les messages suivants, qui sont trop grands, restent sur le serveur\n"
+ "de mail %s:"
+ 
+ #: driver.c:351
+-#, fuzzy, c-format
++#, c-format
+ msgid "\t%d msg %d octets long skipped by fetchmail.\n"
+ msgstr "\tmessage %d de %d octets ignoré par fetchmail.\n"
+ 
+@@ -180,21 +180,18 @@
+ msgstr "délai d'attente dépassé après %d secondes.\n"
+ 
+ #: driver.c:810
+-#, fuzzy
+ msgid "Subject: fetchmail sees repeated timeouts\n"
+-msgstr "Subject: fetchmail a rencontré plusieurs dépassements de délais\r\n"
++msgstr "Subject: fetchmail a rencontré des dépassements de délais répétés\n"
+ 
+ #: driver.c:812
+-#, fuzzy, c-format
++#, c-format
+ msgid ""
+ "Fetchmail saw more than %d timeouts while attempting to get mail from %s@%"
+ "s.\n"
+ msgstr ""
+-"Fetchmail a rencontré plus de %d dépassements de délais en attendant du "
+-"courrier de %s@%s.\r\n"
++"Fetchmail a rencontré plus de %d dépassements de délais en récupérant du courrier de %s@%s.\n"
+ 
+ #: driver.c:817
+-#, fuzzy
+ msgid ""
+ "This could mean that your mailserver is stuck, or that your SMTP\n"
+ "server is wedged, or that your mailbox file on the server has been\n"
+@@ -203,14 +200,14 @@
+ "\n"
+ "Fetchmail won't poll this mailbox again until you restart it.\n"
+ msgstr ""
+-"Ceci pourrait vouloir dire que votre serveur de courrier est bloqué,\r\n"
+-"ou que votre serveur SMTP est coincé, ou que le fichier contenant\r\n"
+-"votre boîte aux lettres sur le serveur a été corrompu par une erreur\r\n"
+-"du serveur.  Vous pouvez exécuter «fetchmail -v -v» pour \r\n"
+-"diagnostiquer le problème\r\n"
+-"\r\n"
+-"Fetchmail n'interrogera pas de nouveau cette boîte aux lettres\r\n"
+-"tant que vous ne l'aurez pas redémarré.\r\n"
++"Ceci pourrait vouloir dire que votre serveur de courrier est bloqué,\n"
++"ou que votre serveur SMTP est coincé, ou que le fichier contenant\n"
++"votre boîte aux lettres sur le serveur a été corrompu par une erreur\n"
++"du serveur.  Vous pouvez exécuter «fetchmail -v -v» pour \n"
++"diagnostiquer le problème\n"
++"\n"
++"Fetchmail n'interrogera pas de nouveau cette boîte aux lettres\n"
++"tant que vous ne l'aurez pas redémarré.\n"
+ 
+ #: driver.c:847
+ #, c-format
+@@ -262,14 +259,14 @@
+ msgstr "erreur DNS inconnue %d."
+ 
+ #: driver.c:1009
+-#, fuzzy, c-format
++#, c-format
+ msgid ""
+ "Subject: Fetchmail unreachable-server warning.\n"
+ "\n"
+ "Fetchmail could not reach the mail server %s:"
+ msgstr ""
+-"Subject: avertissement de serveur non accessible par Fetchmail.\r\n"
+-"\r\n"
++"Subject: avertissement de serveur non accessible par Fetchmail.\n"
++"\n"
+ "Fetchmail ne peut pas accéder au serveur de mail %s:"
+ 
+ #: driver.c:1038 imap.c:384 pop3.c:292
+@@ -296,14 +293,14 @@
+ msgstr " (précédemment autorisée)"
+ 
+ #: driver.c:1123
+-#, fuzzy, c-format
++#, c-format
+ msgid "Subject: fetchmail authentication failed on %s@%s\n"
+-msgstr "Subject: l'authentification de fetchmail a échoué sur %s@%s\r\n"
++msgstr "Subject: l'authentification de fetchmail a échoué sur %s@%s\n"
+ 
+ #: driver.c:1126
+-#, fuzzy, c-format
++#, c-format
+ msgid "Fetchmail could not get mail from %s@%s.\n"
+-msgstr "Fetchmail n'a pu recevoir le courrier de %s@%s.\r\n"
++msgstr "Fetchmail n'a pu recevoir le courrier de %s@%s.\n"
+ 
+ #: driver.c:1130
+ #, fuzzy
+@@ -322,19 +319,17 @@
+ "at each cycle.  No future notifications will be sent until service\n"
+ "is restored."
+ msgstr ""
+-"Votre demande d'autorisation a échoué.\r\n"
+-"Votre mot de passe est probablement erroné, mais certains serveurs\r\n"
+-"ont d'autres types d'erreurs que fetchmail ne peut pas distinguer\r\n"
+-"de celle-ci car ils n'envoient pas de messages d'erreur utiles\r\n"
+-"en cas d'échec du login.\r\n"
+-"\r\n"
+-"Le démon fetchmail va continuer à s'exécuter et à tenter de se connecter\r\n"
+-"a chaque réveil. Il n'y aura plus d'autre notifications jusqu'à ce que\r\n"
+-"le service soit réactivé.\r\n"
+-"\r"
++"Votre demande d'autorisation a échoué.\n"
++"Votre mot de passe est probablement erroné, mais certains serveurs\n"
++"ont d'autres types d'erreurs que fetchmail ne peut pas distinguer\n"
++"de celle-ci car ils n'envoient pas de messages d'erreur utiles\n"
++"en cas d'échec du login.\n"
++"\n"
++"Le démon fetchmail va continuer à s'exécuter et à tenter de se connecter\n"
++"a chaque réveil. Il n'y aura plus d'autre notifications jusqu'à ce que\n"
++"le service soit réactivé."
+ 
+ #: driver.c:1145
+-#, fuzzy
+ msgid ""
+ "The attempt to get authorization failed.\n"
+ "This probably means your password is invalid, but some servers have\n"
+@@ -345,21 +340,20 @@
+ "at each cycle.  No future notifications will be sent until service\n"
+ "is restored."
+ msgstr ""
+-"Votre demande d'autorisation a échoué.\r\n"
+-"Votre mot de passe est probablement erroné, mais certains serveurs\r\n"
+-"ont d'autres types d'erreurs que fetchmail ne peut pas distinguer\r\n"
+-"de celle-ci car ils n'envoient pas de messages d'erreur utiles\r\n"
+-"en cas d'échec du login.\r\n"
+-"\r\n"
+-"Le démon fetchmail va continuer à s'exécuter et à tenter de se connecter\r\n"
+-"a chaque réveil. Il n'y aura plus d'autre notifications jusqu'à ce que\r\n"
+-"le service soit réactivé.\r\n"
+-"\r"
++"Votre demande d'autorisation a échoué.\n"
++"Votre mot de passe est probablement erroné, mais certains serveurs\n"
++"ont d'autres types d'erreurs que fetchmail ne peut pas distinguer\n"
++"de celle-ci car ils n'envoient pas de messages d'erreur utiles\n"
++"en cas d'échec du login.\n"
++"\n"
++"Le démon fetchmail va continuer à s'exécuter et à tenter de se connecter\n"
++"a chaque réveil. Il n'y aura plus d'autre notifications jusqu'à ce que\n"
++"le service soit réactivé."
+ 
+ #: driver.c:1160
+ #, c-format
+ msgid "Repoll immediately on %s@%s\n"
+-msgstr ""
++msgstr "Réinterogation immédiate sur %s@%s\n"
+ 
+ #: driver.c:1165
+ #, c-format
+@@ -372,19 +366,18 @@
+ msgstr "Autorisation OK sur %s@%s\n"
+ 
+ #: driver.c:1195
+-#, fuzzy, c-format
++#, c-format
+ msgid "Subject: fetchmail authentication OK on %s@%s\n"
+-msgstr "Subject: l'authentification de fetchmail a réussie sur %s@%s\r\n"
++msgstr "Subject: l'authentification de fetchmail a réussie sur %s@%s\n"
+ 
+ #: driver.c:1198
+-#, fuzzy, c-format
++#, c-format
+ msgid "Fetchmail was able to log into %s@%s.\n"
+-msgstr "Fetchmail n'a pu enregistrer dans le journal (%s@%s).\r\n"
++msgstr "Fetchmail n'a pu enregistrer dans le journal (%s@%s).\n"
+ 
+ #: driver.c:1202
+-#, fuzzy
+ msgid "Service has been restored.\n"
+-msgstr "Le service a été réactivé\r\n"
++msgstr "Le service a été réactivé.\n"
+ 
+ #: driver.c:1233
+ #, c-format
+@@ -1463,16 +1456,15 @@
+ 
+ #: fetchmail.c:1817
+ msgid "  Poll trace information will be added to the Received header.\n"
+-msgstr ""
+-"  Information de traçage de la réception ajoutée aux en-tetes Received.\n"
++msgstr "  Information de traçage de la réception ajoutée aux en-têtes Received.\n"
+ 
+ #: fetchmail.c:1819
+ msgid ""
+ "  No poll trace information will be added to the Received header.\n"
+ ".\n"
+ msgstr ""
+-"  Aucune ajout d'information de traçage de la réception aux en-tetes "
+-"Received.\n"
++"  Aucune ajout d'information de traçage de la réception aux en-têtes Received.\n"
++".\n"
+ 
+ #: fetchmail.c:1822
+ #, c-format
+@@ -1585,9 +1577,8 @@
+ msgstr "La fonction LOGIN requise n'est pas supportée par le serveur\n"
+ 
+ #: imap.c:604 imap.c:670
+-#, fuzzy
+ msgid "expunge failed\n"
+-msgstr "échec de execvp(%s)\n"
++msgstr "échec de nettoyage\n"
+ 
+ #: imap.c:626 imap.c:655
+ msgid "re-poll failed\n"
+@@ -1608,9 +1599,9 @@
+ msgstr "%d messages en attente après le premier poll\n"
+ 
+ #: imap.c:674
+-#, fuzzy, c-format
++#, c-format
+ msgid "%d messages waiting after expunge\n"
+-msgstr "%d messages en attente après le nouveau poll\n"
++msgstr "%d messages en attente après le nettoyage\n"
+ 
+ #: imap.c:696
+ msgid "search for unseen messages failed\n"
+@@ -1622,9 +1613,9 @@
+ msgstr "%u n'est pas vu\n"
+ 
+ #: imap.c:738
+-#, fuzzy, c-format
++#, c-format
+ msgid "%u is first unseen\n"
+-msgstr "%u n'est pas vu\n"
++msgstr "%u est le premier message non lu\n"
+ 
+ #: interface.c:253
+ msgid "Unable to open kvm interface. Make sure fetchmail is SGID kmem."
+@@ -1971,10 +1962,8 @@
+ msgstr "  -P, --port        port TCP/IP auquel se connecter\n"
+ 
+ #: options.c:682
+-#, fuzzy
+ msgid "      --auth        authentication type (password/kerberos/ssh/otp)\n"
+-msgstr ""
+-"      --auth        type d'authentification (mot de passe/kerberos/ssh)\n"
++msgstr "      --auth        type d'authentification (mot de passe/kerberos/ssh/otp)\n"
+ 
+ #: options.c:683
+ msgid "  -t, --timeout     server nonresponse timeout\n"
+@@ -2129,7 +2118,7 @@
+ 
+ #: rcfile_y.y:123
+ msgid "server option after user options"
+-msgstr ""
++msgstr "option du serveur après les options de l'usager"
+ 
+ #: rcfile_y.y:170
+ msgid "SDPS not enabled."
+@@ -2483,13 +2472,12 @@
+ msgstr "Réponse non-503 inattendue à un ordre LMTP EOM: %s\n"
+ 
+ #: sink.c:1510
+-#, fuzzy
+ msgid ""
+ "--\n"
+ "\t\t\t\tThe Fetchmail Daemon\n"
+ msgstr ""
+-"--\r\n"
+-"\t\t\t\tLe Démon Fetchmail\r\n"
++"--\n"
++"\t\t\t\tLe Démon Fetchmail\n"
+ 
+ #: smtp.c:86
+ msgid "ESMTP CRAM-MD5 Authentication...\n"
+@@ -2647,12 +2635,12 @@
+ #: socket.c:827
+ #, c-format
+ msgid "Warning: server certificate verification: %s\n"
+-msgstr ""
++msgstr "Attention: vérification du certificat du serveur: %s\n"
+ 
+ #: socket.c:833
+ #, c-format
+ msgid "unknown issuer (first %d characters): %s\n"
+-msgstr ""
++msgstr "expéditeur inconun (premiers %d caractères): %s\n"
+ 
+ #: socket.c:865
+ msgid "File descriptor out of range for SSL"
+@@ -2671,11 +2659,11 @@
+ 
+ #: socket.c:1014
+ msgid "Cygwin socket read retry\n"
+-msgstr ""
++msgstr "Ré-essaé de lecture sur la socket Cygwin\n"
+ 
+ #: socket.c:1017
+ msgid "Cygwin socket read retry failed!\n"
+-msgstr ""
++msgstr "Erreur de lecture sur la socket Cygwin!\n"
+ 
+ #: transact.c:69
+ #, c-format
+@@ -2716,9 +2704,8 @@
+ msgstr "adresse `%s' trouvée dans «Received»\n"
+ 
+ #: transact.c:521
+-#, fuzzy
+ msgid "incorrect header line found while scanning headers\n"
+-msgstr "délimiteur de message trouvé durant l'analyse des en-têtes\n"
++msgstr "ligne d'en-tête invalide trouvie durant l'analyse des en-têtes\n"
+ 
+ #: transact.c:1005
+ #, c-format
