@@ -11,7 +11,7 @@ Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN): ╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
 Version:	5.9.13
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -114,7 +114,7 @@ RPOP, APOP, KPOP, вс╕ IMAPи, ESMTP ETRN). П╕сля отримання Fetchmail
 Summary:	A GUI configurator for generating fetchmail configuration files
 Summary(es):	Configurador GUI interactivo por fetchmail
 Summary(fr):	GUI configurateur pour fetchmail
-Summary(pl):	GUI konfigurator do fetchmaila
+Summary(pl):	Konfigurator GUI do fetchmaila
 Summary(pt):	Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo para o fetchmail
 Summary(ru):	Графическая утилита для конфигурации предпочтений для fetchmail
 Summary(uk):	Граф╕чна утил╕та для конф╕гурац╕╖ вподобань для fetchmail
@@ -124,7 +124,7 @@ Requires:	python
 Requires:	tkinter
 
 %description -n fetchmailconf
-A GUI configurator for generating fetchmail configuration file writen
+A GUI configurator for generating fetchmail configuration file written
 in python.
 
 %description -n fetchmailconf -l de
@@ -134,33 +134,33 @@ Ein interaktiver GUI-Konfigurator fЭr fetchmail in python.
 Configurador grАfico para fetchmail escrito en python.
 
 %description -n fetchmailconf -l pl
-GUI konfigurator do fetchmaila napisany w pythonie.
+Konfigurator GUI do fetchmaila napisany w pythonie.
 
 %description -n fetchmailconf -l pt
 Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo
 para o fetchmail.
 
-%description -n fetchmailconf
+%description -n fetchmailconf -l ru
 Fetchmailconf - это программа на TCL/TK для конфигурации вашего файла
 предпочтений ~/.fetchmailrc.
 
-%description -n fetchmailconf
+%description -n fetchmailconf -l uk
 Fetchmailconf - це програма на TCL/TK для конф╕гурац╕╖ вашого файла
 вподобань ~/.fetchmailrc.
 
 %package daemon
-Summary:	SySV init script for demonize fetchmail for sucking emails
-Summary(pl):	SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon
+Summary:	SysV init script for demonize fetchmail for sucking emails
+Summary(pl):	Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona
 Group:		Applications/System
 Requires:	%{name} = %{version}
-Prereq:		rc-scripts >= 0.2.0
-Prereq:		/sbin/chkconfig
+PreReq:		rc-scripts >= 0.2.0
+PreReq:		/sbin/chkconfig
 
 %description daemon
-SySV init script for demonize fetchmail for sucking emails.
+SysV init script for demonize fetchmail for sucking emails.
 
 %description daemon -l pl
-SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
+Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona.
 
 %prep
 %setup -q
@@ -187,14 +187,12 @@ cp -f /usr/share/automake/config.* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings \
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig} \
 	$RPM_BUILD_ROOT/etc/logrotate.d
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/fetchmail
@@ -203,9 +201,7 @@ install %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{name}
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 
-gzip -9nf FEATURES README NEWS NOTES ABOUT-NLS INSTALL README.NTLM *.html FAQ
-
-touch $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
+> $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 
 %find_lang %{name}
 
@@ -230,14 +226,12 @@ fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
-
+%doc FEATURES README NEWS NOTES ABOUT-NLS INSTALL README.NTLM *.html FAQ
 %attr(755,root,root) %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
 
 %files -n fetchmailconf
 %defattr(644,root,root,755)
-%{_libdir}/rhs/control-panel/*
 %attr(755,root,root) %{_bindir}/fetchmailconf
 %{_applnkdir}/Settings/fetchmailconf.desktop
 %{_mandir}/man1/fetchmailconf.1*
