@@ -10,8 +10,8 @@ Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩm
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN): ╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
-Version:	6.1.0
-Release:	3
+Version:	6.1.1
+Release:	1
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -21,7 +21,6 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
-Patch1:		%{name}-po_updates.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	autoconf
@@ -165,7 +164,6 @@ Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona.
 %setup -q
 chmod -R u+w *
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__gettextize}
