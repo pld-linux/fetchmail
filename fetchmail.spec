@@ -15,6 +15,7 @@ Group(pl):	Aplikacje/Poczta
 Group(pt_BR):	Aplicações/Correio Eletrônico
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source:		ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
+Patch:		fetchmail-glibc.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail
 Requires:	smtpdaemon
@@ -94,6 +95,7 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 autoconf
@@ -101,7 +103,8 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure %{_target_platform} \
 	--prefix=%{_prefix} \
 	--enable-nls \
-	--without-included-gettext
+	--without-included-gettext \
+	--enable-inet6
 make
 
 %install
