@@ -131,7 +131,7 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 %build
 chmod -R u+w *
 gettextize --copy --force
-CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -DSSL_ENABLE"
+CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -DSSL_ENABLE"
 %configure \
 	--enable-nls \
 	--without-included-gettext \
