@@ -124,7 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.gz sample.rcfile
 
-%attr(755,root,root) /usr/bin/fetchmail
+%attr(755,root,root) %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
 
 %lang(es)    %{_datadir}/locale/es/LC_MESSAGES/fetchmail.mo
@@ -136,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 /etc/X11/wmconfig/fetchmailconf
 %{_libdir}/rhs/control-panel/*
-%attr(755,root,root) /usr/bin/fetchmailconf
+%attr(755,root,root) %{_bindir}/fetchmailconf
 %{_mandir}/man1/fetchmailconf.1.gz
 
 %changelog
