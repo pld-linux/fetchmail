@@ -19,7 +19,6 @@ Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
-Patch0:		%{name}-DESTDIR.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
@@ -127,13 +126,10 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 chmod -R u+w *
 gettextize --copy --force
-aclocal
-autoconf
 CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -DSSL_ENABLE"
 %configure \
 	--enable-nls \
