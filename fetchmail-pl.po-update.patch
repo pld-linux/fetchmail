@@ -88,7 +88,7 @@
 +#, c-format
  msgid "reading message %s@%s:%d of %d"
 -msgstr "pobieram %d list z %d"
-+msgstr "pobieram %d list %s@%s:%d z %d"
++msgstr "pobieram list %s@%s:%d z %d"
  
  # budowanie komunikatu z pojedynczych slow - uwaga
  # na spacje i odmiane -PK
