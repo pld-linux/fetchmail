@@ -170,7 +170,7 @@ chmod -R u+w *
 %build
 gettextize --copy --force
 aclocal
-autoconf
+%{__autoconf}
 cp -f /usr/share/automake/config.* .
 %configure \
 	--enable-nls \
