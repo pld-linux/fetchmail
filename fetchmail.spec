@@ -1,18 +1,20 @@
 Summary:        Remote mail fetch daemon for POP2, POP3, APOP, IMAP
+Summary(da):	Alsidig POP/IMAP post-afhentnings dæmon
 Summary(de):    Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
+Summary(es_AR):	Recolector de correo via POP/IMAP
 Summary(fr):    Démon de récupération du mail pour POP2, POP3, APOP, IMAP.
 Summary(pl):    Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt_BR): Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):    POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:           fetchmail
-Version:        4.7.6
-Release:        1d
+Version:        5.0.0
+Release:        1
 Copyright:      freely redistributable
 Group:          Applications/Mail
+Group(pl):	Aplikacje/Poczta
 Group(pt_BR):   Aplicações/Correio Eletrônico
 Vendor:         Eric S. Raymond <esr@thyrsus.com>
 Source:         ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
-Patch:		fetchmail-krb5.patch
 Icon:           fetchmail.gif
 URL:            http://www.tuxedo.org/~esr/fetchmail
 Requires:       smtpdaemon
@@ -24,15 +26,33 @@ server. It can use the Post Office Protocol (POP) or IMAP (Internet Mail
 Access Protocol) for this, and delivers the mail through the local SMTP
 server (normally sendmail).
 
+description -l da
+Fetchmail er et gratis, robust, alsidigt og vel-dokumenteret værktøj til
+afhentning og videresending af elektronisk post via TCP/IP baserede
+opkalds-forbindelser (såsom SLIP eller PPP forbindelser).  Den henter post
+fra en ekstern post-server, og videresender den til din lokale
+klient-maskines post-system, så den kan læses af almindelige mail klienter
+såsom mutt, elm, pine, (x)emacs/gnus, eller mailx. Der medfølger også et
+interaktivt GUI-baseret konfigurations-program, som kan bruges af
+almindelige brugere.
+
 %description -l de                                                                                            
 Fetchmail ist ein freies, vollständiges, robustes und wohldokumentiertes
 Werkzeug zum Abholen und Weiterreichen von E-Mail, gedacht zum Gebrauchüber
-temporäre TCP/IP-Verbindungen (wie z.B. SLIP- oder PPP-Verbindungen).  Es
+temporäre TCP/IP-Verbindungen (wie z.B. SLIP- oder PPP-Verbindungen). Es
 holt E-Mail von (weit) entfernten Mail-Servern abund reicht sie an das
 Auslieferungssystem der lokalen Client-Maschine weiter, damit sie dann von
 normalen MUAs ("mail user agents") wie mutt, elm, pine, (x)emacs/gnus oder
-mailx gelesen werden kann.  Ein interaktiver GUI-Konfigurator auch gut
+mailx gelesen werden kann. Ein interaktiver GUI-Konfigurator auch gut
 geeignet zum Gebrauch durch Endbenutzer wird mitgeliefert.
+
+%description -l es
+Fetchmail es una utilidad gratis, completa, robusta y bien documentada para
+la recepción y reeenvío de correo pensada para ser usada en co- nexiones
+TCP/IP por demanda (como SLIP y PPP). Recibe el correo de servidores remotos
+y lo reenvía al sistema de entrega local, siendo de ese modo posible leerlo
+con programas como mutt, elm, pine, (x)emacs/gnus o mailx. Contiene un
+configurador GUI interactivo pensado para usuarios.
 
 %description -l fr
 Fetchmail est un programme utilisé pour récupérer le mail depuis un serveur
@@ -58,8 +78,11 @@ mektuplarýnýzý alýr.
 
 %package -n fetchmailconf
 Summary:        A GUI configurator for generating fetchmail configuration files
+Summary(es):	Configurador GUI interactivo por fetchmail
+Summary(fr):	GUI configurateur pour fetchmail
 Summary(pl):    GUI konfigurator do fetchmaila
 Group:          Utilities/System
+Group(pl):	Narzêdzia/System
 Requires:       %{name} = %{version}, python
 
 %description -n fetchmailconf
@@ -78,7 +101,6 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 	--prefix=/usr \
 	--enable-nls \
 	--without-included-gettext \
-	--with-kerberos5=/usr \
 	--with-gssapi=/usr/lib
 make
 
@@ -93,8 +115,8 @@ install rh-config/fetchmailconf.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/fetchm
 rm -f $RPM_BUILD_ROOT/usr/man/man1/fetchmailconf.1
 echo ".so fetchmail.1" > $RPM_BUILD_ROOT/usr/man/man1/fetchmailconf.1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
-bzip2 -9 FEATURES README NEWS NOTES *.html FAQ COPYING
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/* \
+	FEATURES README NEWS NOTES *.html FAQ COPYING
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -104,9 +126,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.bz2 sample.rcfile
 
 %attr(755,root,root) /usr/bin/fetchmail
-%attr(644,root, man) /usr/man/man1/fetchmail.1*
+/usr/man/man1/fetchmail.1*
 
 %lang(es)    /usr/share/locale/es/LC_MESSAGES/fetchmail.mo
+%lang(fr)    /usr/share/locale/fr/LC_MESSAGES/fetchmail.mo
 %lang(pl)    /usr/share/locale/pl/LC_MESSAGES/fetchmail.mo
 %lang(pt_BR) /usr/share/locale/pt_BR/LC_MESSAGES/fetchmail.mo
 
@@ -115,9 +138,14 @@ rm -rf $RPM_BUILD_ROOT
 /etc/X11/wmconfig/fetchmailconf
 /usr/lib/rhs/control-panel/*
 %attr(755,root,root) /usr/bin/fetchmailconf
-%attr(644,root, man) /usr/man/man1/fetchmailconf.1.gz
+/usr/man/man1/fetchmailconf.1.gz
 
 %changelog
+* Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [5.0.0-1]
+- removed man group from man pages,
+- more locales (fr) and translations (es_AR, fr, da).
+
 * Wed Jan 27 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [4.7.6-1d]
 - fix: removed fetchmailconf binary from main package,
