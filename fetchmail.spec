@@ -13,7 +13,6 @@ Name:		fetchmail
 Version:	6.2.0
 Release:	2
 License:	GPL
-Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
 Source0:	http://www.tuxedo.org/~esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	%{name}conf.desktop
