@@ -29,7 +29,7 @@ server. It can use the Post Office Protocol (POP) or IMAP (Internet Mail
 Access Protocol) for this, and delivers the mail through the local SMTP
 server (normally sendmail).
 
-description -l da
+%description -l da
 Fetchmail er et gratis, robust, alsidigt og vel-dokumenteret værktøj til
 afhentning og videresending af elektronisk post via TCP/IP baserede
 opkalds-forbindelser (såsom SLIP eller PPP forbindelser).  Den henter post
