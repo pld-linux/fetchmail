@@ -185,7 +185,8 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig} \
 	$RPM_BUILD_ROOT/etc/logrotate.d
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
