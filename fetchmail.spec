@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.3.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
@@ -89,7 +89,9 @@ Summary(fr):	GUI configurateur pour fetchmail
 Summary(pl):	GUI konfigurator do fetchmaila
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Requires:	%{name} = %{version}, python
+Requires:	%{name} = %{version}
+Requires:	python
+Requires:	tkinter
 
 %description -n fetchmailconf
 A GUI configurator for generating fetchmail configuration file writen in
