@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.4.4
+Version:	5.4.5
 Release:	1
 License:	GPL
 Group:		Applications/Mail
@@ -15,10 +15,10 @@ Group(pl):	Aplikacje/Poczta
 Group(pt):	Aplicações/Correio Eletrônico
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
-Source1:	fetchmailconf.desktop
-Source2:	fetchmail.sysconfig
-Source3:	fetchmail.init
-Patch0:		fetchmail-DESTDIR.patch
+Source1:	%{name}conf.desktop
+Source2:	%{name}.sysconfig
+Source3:	%{name}.init
+Patch0:		%{name}-DESTDIR.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
@@ -147,7 +147,7 @@ CFLAGS="$RPM_OPT_FLAGS -DSSL_ENABLE"
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
 	$RPM_BUILD_ROOT%{_applnkdir}/Administration \
-$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
+	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
