@@ -165,7 +165,7 @@ touch $RPM_BUILD_ROOT/etc/fetchmailrc
 if [ -f /var/lock/subsys/fetchmail ]; then
 	/etc/rc.d/init.d/fetchmail restart >&2
 else
-	echo "Run \"/etc/rc.d/init.d/httpd start\" to start fetchamil daemon."
+	echo "Run \"/etc/rc.d/init.d/fetchmail start\" to start fetchamil daemon."
 fi
 
 %preun daemon
