@@ -18,6 +18,7 @@ Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	fetchmailconf.desktop
 Patch0:		fetchmail-glibc.patch
 Patch1:		fetchmail-DESTDIR.patch
+Patch2:		fetchmail-ssl.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 Requires:	smtpdaemon
@@ -105,6 +106,7 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 %setup -q
 %patch0 -p1
 %patch1 -p0
+%patch2 -p1
 
 %build
 chmod +w aclocal.m4
@@ -112,10 +114,12 @@ gettextize --copy --force
 aclocal
 autoconf
 LDFLAGS="-s"; export LDFLAGS
+CFLAGS="$RPM_OPT_FLAGS -DSSL_ENABLE"
 %configure \
 	--enable-nls \
 	--without-included-gettext \
-	--enable-inet6
+	--enable-inet6 \
+	--with-ssl=/usr
 make
 
 %install
