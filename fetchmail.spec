@@ -8,8 +8,9 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(ru):	Утилита извлечения почты с удаленной машины по протоколам POP/IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩmЩ
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
+Summary(zh_CN): ╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
-Version:	5.9.11
+Version:	5.9.12
 Release:	1
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
@@ -20,7 +21,7 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
-Patch1:		%{name}-ac25x.patch
+Patch1:		%{name}-po_updates.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	autoconf
