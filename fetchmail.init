@@ -55,8 +55,7 @@ case "$1" in
         ;;
   reload)
 	if [ -f /var/lock/subsys/fetchmail ]; then
-		msg_show fetchmail
-		msg_reload
+		msg_reloading "fetchmail"
 		busy
 		killproc fetchmail -HUP
 		deltext
