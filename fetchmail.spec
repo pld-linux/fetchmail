@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.6.2
+Version:	5.6.3
 Release:	1
 License:	GPL
 Group:		Applications/Mail
@@ -21,7 +21,7 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
-BuildRequires:	openssl-devel >= 0.9.4-2
+%{!?bcond_off_ssl:BuildRequires:	openssl-devel >= 0.9.4-2}
 BuildRequires:	gettext-devel
 BuildRequires:	flex
 BuildRequires:	bison
@@ -133,7 +133,6 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 %build
 chmod -R u+w *
 gettextize --copy --force
-CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -DSSL_ENABLE"
 %configure \
 	--enable-nls \
 	--without-included-gettext \
@@ -141,7 +140,8 @@ CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -DSSL_ENABLE"
 	--enable-RPA \
 	--enable-NTLM \
 	--enable-SDPS \
-	--with-ssl=%{_prefix} \
+	%{!?bcond_off_ssl:--with-ssl=%{_prefix}} \
+	%{?bcond_off_ssl:--without-ssl} \
 	--without-kerberos
 %{__make}
 
