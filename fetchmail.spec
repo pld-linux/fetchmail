@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.6.6
-Release:	2
+Release:	3
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -20,6 +20,7 @@ Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
+Patch0:		%{name}-ipv6.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 %{!?bcond_off_ssl:BuildRequires:	openssl-devel >= 0.9.4-2}
@@ -130,6 +131,7 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 chmod -R u+w *
