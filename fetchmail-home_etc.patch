@@ -1,0 +1,25 @@
+diff -Nru fetchmail-6.2.5.orig/env.c fetchmail-6.2.5/env.c
+--- fetchmail-6.2.5.orig/env.c	Thu Jul 17 03:03:20 2003
++++ fetchmail-6.2.5/env.c	Mon Nov  3 07:51:10 2003
+@@ -107,6 +107,8 @@
+     }
+ 
+     /* compute user's home directory */
++		home = getenv("HOME_ETC");
++		if (!home)
+     if (!(home = getenv("HOME")))
+ 	home = pwp->pw_dir;
+ 
+diff -Nru fetchmail-6.2.5.orig/fetchmail.man fetchmail-6.2.5/fetchmail.man
+--- fetchmail-6.2.5.orig/fetchmail.man	Wed Oct 15 21:22:31 2003
++++ fetchmail-6.2.5/fetchmail.man	Mon Nov  3 07:57:46 2003
+@@ -2167,6 +2167,9 @@
+ \&.netrc file is looked for in the the invoking user's home directory
+ regardless of FETCHMAILHOME's setting.
+ 
++If the HOME_ETC variable is set, file $HOME_ETC/.fetchmailrc is used
++instead of ~/.fetchmailrc.
++
+ .SH SIGNALS
+ If a
+ .I fetchmail
