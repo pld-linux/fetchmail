@@ -1,0 +1,4 @@
+# Customized setings for fetchmail
+
+# Define nice level for fetchmail
+SERVICE_RUN_NICE_LEVEL="+5"
