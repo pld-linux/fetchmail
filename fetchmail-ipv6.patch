@@ -1,0 +1,16 @@
+diff -urN fetchmail-5.6.6.org/ipv6-connect.c fetchmail-5.6.6/ipv6-connect.c
+--- fetchmail-5.6.6.org/ipv6-connect.c	Mon Feb 19 20:30:59 2001
++++ fetchmail-5.6.6/ipv6-connect.c	Mon Feb 19 20:33:09 2001
+@@ -21,7 +21,11 @@
+ #include <signal.h>
+ 
+ #ifndef SA_LEN
+-#define SA_LEN(sa)	((sa)->sa_len)
++#ifdef __GLIBC__
++#define SA_LEN(sa)	((sa)->sa_family == AF_INET6 ? sizeof(struct sockaddr_in6) : sizeof(struct sockaddr_in))
++#else
++#define	SA_LEN(sa)	((sa)->sa_len)
++#endif
+ #endif
+ 
+ #ifdef INET6_ENABLE

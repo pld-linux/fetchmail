@@ -1,0 +1,31 @@
+--- fetchmail-5.9.10/configure.in.orig	Sat Mar  9 06:36:49 2002
++++ fetchmail-5.9.10/configure.in	Fri Mar 29 21:08:55 2002
+@@ -40,7 +40,6 @@
+ AC_SUBST(CPFLAGS)
+ AC_SUBST(CEFLAGS)
+ AC_SUBST(LDEFLAGS)
+-AC_SUBST(LIBOBJS)
+ 
+ # Check for LynxOS special case: -lbsd needed (at least on 2.3.0) and -s
+ # not working.
+--- fetchmail-5.9.10/Makefile.in.orig	Sun Mar 10 20:20:09 2002
++++ fetchmail-5.9.10/Makefile.in	Fri Mar 29 21:11:55 2002
+@@ -44,9 +44,6 @@
+ LOADLIBS = @LIBS@ @INTLLIBS@ @LEXLIB@
+ # LOADLIBS = -lsocket3r -lunix3r	# QNX
+ 
+-# Any extra object files your system needs.
+-extras = @LIBOBJS@
+-
+ # Extra sources/objects for library functions not provided on the host system.
+ EXTRASRC = @EXTRASRC@
+ # EXTRASRC = $(srcdir)/strcasecmp.c $(srcdir)/alloca.c	# QNX
+@@ -98,7 +95,7 @@
+        report.o unmime.o conf.o checkalias.o smbdes.o smbencrypt.o smbmd4.o \
+        smbutil.o ipv6-connect.o lock.o
+ 
+-objs = $(protobjs) $(extras) $(EXTRAOBJ)
++objs = $(protobjs) $(EXTRAOBJ)
+ 
+ srcs = $(srcdir)/socket.c $(srcdir)/getpass.c $(srcdir)/pop2.c 		\
+        $(srcdir)/pop3.c $(srcdir)/imap.c $(srcdir)/etrn.c 		\

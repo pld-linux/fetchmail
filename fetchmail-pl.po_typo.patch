@@ -1,0 +1,11 @@
+--- fetchmail-5.9.0/po/pl.po~	Fri Aug 10 18:22:46 2001
++++ fetchmail-5.9.0/po/pl.po	Mon Aug 27 18:19:58 2001
+@@ -735,7 +735,7 @@
+ #: fetchmail.c:1138
+ #, c-format
+ msgid "couldn't find canonical DNS name of %s\n"
+-msgstr "nie mogê znale¼æ kanoniecznej nazwy %s\n"
++msgstr "nie mogê znale¼æ kanonicznej nazwy %s\n"
+ 
+ #: fetchmail.c:1162
+ #, c-format
