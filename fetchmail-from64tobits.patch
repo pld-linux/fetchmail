@@ -1,0 +1,24 @@
+diff -ur fetchmail-5.9.4/imap.c fetchmail.new/imap.c
+--- fetchmail-5.9.4/imap.c	Tue Oct  2 09:55:58 2001
++++ fetchmail.new/imap.c	Wed Oct 10 14:28:06 2001
+@@ -181,7 +181,7 @@
+     if ((gen_recv(sock, msgbuf, sizeof msgbuf)))
+ 	return result;
+   
+-    len = from64tobits ((unsigned char*)&challenge, msgbuf);
++    len = from64tobits ((unsigned char*)&challenge, msgbuf, sizeof(challenge));
+     
+     if (outlevel >= O_DEBUG)
+ 	dumpSmbNtlmAuthChallenge(stdout, &challenge);
+diff -ur fetchmail-5.9.4/kerberos.c fetchmail.new/kerberos.c
+--- fetchmail-5.9.4/kerberos.c	Wed Oct  3 11:33:07 2001
++++ fetchmail.new/kerberos.c	Wed Oct 10 14:19:47 2001
+@@ -208,7 +208,7 @@
+      * process is complete.
+      */
+ 
+-    len = from64tobits(buf2, buf1, sizeof(buf2x));
++    len = from64tobits(buf2, buf1, sizeof(buf2));
+     if (len < 0) {
+ 	report(stderr, GT_("could not decode BASE64 ready response\n"));
+ 	return PS_AUTHFAIL;
