@@ -174,7 +174,7 @@ if [ "$1" = "0" ]; then
 	if [ -f /var/lock/subsys/fetchmail ]; then
 		/etc/rc.d/init.d/fetchmail stop >&2
 	fi
-	/sbin/checkconfig --del fetchmail
+	/sbin/chkconfig --del fetchmail
 fi
 
 %clean
