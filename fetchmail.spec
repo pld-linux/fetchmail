@@ -150,7 +150,7 @@ gettextize --copy --force
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings \
-	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
+	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig} \
 	$RPM_BUILD_ROOT/etc/logrotate.d
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
