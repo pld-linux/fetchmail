@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.6.6
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Group:		Applications/Mail
@@ -19,6 +19,7 @@ Source0:	http://www.tuxedo.org/~esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
+Source4:	%{name}.logrotate
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 %{!?bcond_off_ssl:BuildRequires:	openssl-devel >= 0.9.4-2}
@@ -150,6 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
+	$RPM_BUILD_ROOT/etc/logrotate.d
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -157,6 +159,7 @@ install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
+install %{SOURCE4} $RPM_BUILD_ROOT/etc/logrotate.d/%{name}
 
 gzip -9nf FEATURES README NEWS NOTES *.html FAQ
 
@@ -202,3 +205,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(600,root,root) %config(noreplace,missingok) %{_sysconfdir}/fetchmailrc
 %attr(754,root,root) /etc/rc.d/init.d/fetchmail
 %attr(640,root,root) %config(noreplace) /etc/sysconfig/fetchmail
+%attr(640,root,root) /etc/logrotate.d/fetchmail
