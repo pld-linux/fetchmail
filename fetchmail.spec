@@ -2,13 +2,13 @@ Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
 Summary(da):	Alsidig POP/IMAP post-afhentnings dæmon
 Summary(de):	Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
 Summary(es):	Recolector de correo via POP/IMAP
-Summary(fr):	Démon de récupération du mail pour POP2, POP3, APOP, IMAP.
+Summary(fr):	Démon de récupération du mail pour POP2, POP3, APOP, IMAP
 Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.3.2
-Release:	2
+Version:	5.3.4
+Release:	1
 License:	GPL
 Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
@@ -95,13 +95,13 @@ Requires:	tkinter
 
 %description -n fetchmailconf
 A GUI configurator for generating fetchmail configuration file writen in
-python
+python.
 
 %description -n fetchmailconf -l de
-Ein interaktiver GUI-Konfigurator für fetchmail in python
+Ein interaktiver GUI-Konfigurator für fetchmail in python.
 
 %description -n fetchmailconf -l es
-Configurador gráfico para fetchmail escrito en python
+Configurador gráfico para fetchmail escrito en python.
 
 %description -n fetchmailconf -l pl 
 GUI konfigurator do fetchmaila napisany w pythonie.
@@ -112,6 +112,7 @@ Summary(pl):	SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	%{name} = %{version}
+Requires:	rc-scripts >= 0.2.0
 
 %description daemon
 SySV init script for demonize fetchmail for sucking emails.
