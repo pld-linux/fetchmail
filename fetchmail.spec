@@ -131,6 +131,7 @@ Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Requires:	%{name} = %{version}
 Prereq:		rc-scripts >= 0.2.0
+Prereq:		/sbin/chkconfig
 
 %description daemon
 SySV init script for demonize fetchmail for sucking emails.
