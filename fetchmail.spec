@@ -7,7 +7,7 @@ Summary(pl):    Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt_BR): Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):    POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:           fetchmail
-Version:        5.0.0
+Version:        5.0.1
 Release:        1
 Copyright:      freely redistributable
 Group:          Applications/Mail
@@ -140,6 +140,10 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/man1/fetchmailconf.1.gz
 
 %changelog
+* Mon Apr 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [5.0.1-1]
+- recompiles on new rpm.
+
 * Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [5.0.0-1]
 - removed man group from man pages,
