@@ -1,18 +1,18 @@
 Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
 Summary(da):	Alsidig POP/IMAP post-afhentnings dæmon
 Summary(de):	Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
-Summary(es_AR):	Recolector de correo via POP/IMAP
+Summary(es):	Recolector de correo via POP/IMAP
 Summary(fr):	Démon de récupération du mail pour POP2, POP3, APOP, IMAP.
 Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
-Summary(pt_BR):	Busca mensagens de um servidor usando POP ou IMAP
+Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.0.7
+Version:	5.0.8
 Release:	1
 Copyright:	freely redistributable
 Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
-Group(pt_BR):	Aplicações/Correio Eletrônico
+Group(pt):	Aplicações/Correio Eletrônico
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	fetchmailconf.desktop
@@ -69,7 +69,7 @@ pocztowych. Do ¶ci±gania poczty mo¿e on uzywaæ protoko³ów POP (Post Office
 Protocol) lub IMAP (Internet Mail Access Protocol). ¦ci±gniêt± pocztê
 dostarcza do koñcowych odbiorców poprzez lokalny serwer SMTP.
 
-%description -l pt_BR
+%description -l pt
 fetchmail é um programa que é usado para recuperar mensagens de um servidor
 de mail remoto. Ele pode usar Post Office Protocol (POP) ou IMAP (Internet
 Mail Access Protocol) para isso, e entrega o mail através do servidor local
@@ -91,6 +91,12 @@ Requires:	%{name} = %{version}, python
 %description -n fetchmailconf
 A GUI configurator for generating fetchmail configuration file writen in
 python
+
+%description -n fetchmailconf -l de
+Ein interaktiver GUI-Konfigurator für fetchmail in python
+
+%description -n fetchmailconf -l es
+Configurador gráfico para fetchmail escrito en python
 
 %description -n fetchmailconf -l pl 
 GUI konfigurator do fetchmaila napisany w pythonie.
