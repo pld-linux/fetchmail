@@ -1,0 +1,223 @@
+--- fetchmail-6.2.0/po/fr.po.orig	Mon Sep 23 00:34:44 2002
++++ fetchmail-6.2.0/po/fr.po	Sat Dec 21 13:10:17 2002
+@@ -61,18 +61,18 @@
+ #: driver.c:324
+ #, c-format
+ msgid ""
+-"Subject: Fetchmail oversized-messages warning.\r\n"
+-"\r\n"
++"Subject: Fetchmail oversized-messages warning.\n"
++"\n"
+ "The following oversized messages remain on the mail server %s:"
+ msgstr ""
+-"Subject: Alerte de Fetchmail: messages trop grands.\r\n"
+-"\r\n"
++"Subject: Alerte de Fetchmail: messages trop grands.\n"
++"\n"
+ "Les messages suivants, qui sont trop grands, restent sur le serveur\n"
+ "de mail %s:"
+ 
+ #: driver.c:342
+ #, c-format
+-msgid "\t%d msg %d octets long skipped by fetchmail.\r\n"
++msgid "\t%d msg %d octets long skipped by fetchmail.\n"
+ msgstr "\tmessage %d de %d octets ignoré par fetchmail.\n"
+ 
+ #: driver.c:426
+@@ -177,35 +177,35 @@
+ msgstr "délai d'attente dépassé après %d secondes.\n"
+ 
+ #: driver.c:787
+-msgid "Subject: fetchmail sees repeated timeouts\r\n"
+-msgstr "Subject: fetchmail a rencontré plusieurs dépassements de délais\r\n"
++msgid "Subject: fetchmail sees repeated timeouts\n"
++msgstr "Subject: fetchmail a rencontré plusieurs dépassements de délais\n"
+ 
+ #: driver.c:789
+ #, c-format
+ msgid ""
+ "Fetchmail saw more than %d timeouts while attempting to get mail from %s@%s."
+-"\r\n"
++"\n"
+ msgstr ""
+ "Fetchmail a rencontré plus de %d dépassements de délais en attendant du "
+-"courrier de %s@%s.\r\n"
++"courrier de %s@%s.\n"
+ 
+ #: driver.c:794
+ msgid ""
+-"This could mean that your mailserver is stuck, or that your SMTP\r\n"
+-"server is wedged, or that your mailbox file on the server has been\r\n"
+-"corrupted by a server error.  You can run `fetchmail -v -v' to\r\n"
+-"diagnose the problem.\r\n"
+-"\r\n"
+-"Fetchmail won't poll this mailbox again until you restart it.\r\n"
+-msgstr ""
+-"Ceci pourrait vouloir dire que votre serveur de courrier est bloqué,\r\n"
+-"ou que votre serveur SMTP est coincé, ou que le fichier contenant\r\n"
+-"votre boîte aux lettres sur le serveur a été corrompu par une erreur\r\n"
+-"du serveur.  Vous pouvez exécuter «fetchmail -v -v» pour \r\n"
+-"diagnostiquer le problème\r\n"
+-"\r\n"
+-"Fetchmail n'interrogera pas de nouveau cette boîte aux lettres\r\n"
+-"tant que vous ne l'aurez pas redémarré.\r\n"
++"This could mean that your mailserver is stuck, or that your SMTP\n"
++"server is wedged, or that your mailbox file on the server has been\n"
++"corrupted by a server error.  You can run `fetchmail -v -v' to\n"
++"diagnose the problem.\n"
++"\n"
++"Fetchmail won't poll this mailbox again until you restart it.\n"
++msgstr ""
++"Ceci pourrait vouloir dire que votre serveur de courrier est bloqué,\n"
++"ou que votre serveur SMTP est coincé, ou que le fichier contenant\n"
++"votre boîte aux lettres sur le serveur a été corrompu par une erreur\n"
++"du serveur.  Vous pouvez exécuter «fetchmail -v -v» pour \n"
++"diagnostiquer le problème\n"
++"\n"
++"Fetchmail n'interrogera pas de nouveau cette boîte aux lettres\n"
++"tant que vous ne l'aurez pas redémarré.\n"
+ 
+ #: driver.c:824
+ #, c-format
+@@ -259,12 +259,12 @@
+ #: driver.c:986
+ #, c-format
+ msgid ""
+-"Subject: Fetchmail unreachable-server warning.\r\n"
+-"\r\n"
++"Subject: Fetchmail unreachable-server warning.\n"
++"\n"
+ "Fetchmail could not reach the mail server %s:"
+ msgstr ""
+-"Subject: avertissement de serveur non accessible par Fetchmail.\r\n"
+-"\r\n"
++"Subject: avertissement de serveur non accessible par Fetchmail.\n"
++"\n"
+ "Fetchmail ne peut pas accéder au serveur de mail %s:"
+ 
+ #: driver.c:1015 imap.c:374 pop3.c:258
+@@ -292,52 +292,51 @@
+ 
+ #: driver.c:1100
+ #, c-format
+-msgid "Subject: fetchmail authentication failed on %s@%s\r\n"
+-msgstr "Subject: l'authentification de fetchmail a échoué sur %s@%s\r\n"
++msgid "Subject: fetchmail authentication failed on %s@%s\n"
++msgstr "Subject: l'authentification de fetchmail a échoué sur %s@%s\n"
+ 
+ #: driver.c:1103
+ #, c-format
+-msgid "Fetchmail could not get mail from %s@%s.\r\n"
+-msgstr "Fetchmail n'a pu recevoir le courrier de %s@%s.\r\n"
++msgid "Fetchmail could not get mail from %s@%s.\n"
++msgstr "Fetchmail n'a pu recevoir le courrier de %s@%s.\n"
+ 
+ #: driver.c:1107
+ msgid ""
+-"The attempt to get authorization failed.\r\n"
+-"Since we have already succeeded in getting authorization for this\r\n"
+-"connection, this is probably another failure mode (such as busy server)\r\n"
+-"that fetchmail cannot distinguish because the server didn't send a useful\r\n"
+-"error message.\r\n"
+-"\r\n"
+-"However, if you HAVE changed you account details since starting the\r\n"
+-"fetchmail daemon, you need to stop the daemon, change your configuration\r\n"
+-"of fetchmail, and then restart the daemon.\r\n"
+-"\r\n"
+-"The fetchmail daemon will continue running and attempt to connect\r\n"
+-"at each cycle.  No future notifications will be sent until service\r\n"
++"The attempt to get authorization failed.\n"
++"Since we have already succeeded in getting authorization for this\n"
++"connection, this is probably another failure mode (such as busy server)\n"
++"that fetchmail cannot distinguish because the server didn't send a useful\n"
++"error message.\n"
++"\n"
++"However, if you HAVE changed you account details since starting the\n"
++"fetchmail daemon, you need to stop the daemon, change your configuration\n"
++"of fetchmail, and then restart the daemon.\n"
++"\n"
++"The fetchmail daemon will continue running and attempt to connect\n"
++"at each cycle.  No future notifications will be sent until service\n"
+ "is restored."
+ msgstr ""
+ 
+ #: driver.c:1122
+ msgid ""
+-"The attempt to get authorization failed.\r\n"
+-"This probably means your password is invalid, but some servers have\r\n"
+-"other failure modes that fetchmail cannot distinguish from this\r\n"
+-"because they don't send useful error messages on login failure.\r\n"
+-"\r\n"
+-"The fetchmail daemon will continue running and attempt to connect\r\n"
+-"at each cycle.  No future notifications will be sent until service\r\n"
++"The attempt to get authorization failed.\n"
++"This probably means your password is invalid, but some servers have\n"
++"other failure modes that fetchmail cannot distinguish from this\n"
++"because they don't send useful error messages on login failure.\n"
++"\n"
++"The fetchmail daemon will continue running and attempt to connect\n"
++"at each cycle.  No future notifications will be sent until service\n"
+ "is restored."
+ msgstr ""
+-"Votre demande d'autorisation a échoué.\r\n"
+-"Votre mot de passe est probablement erroné, mais certains serveurs\r\n"
+-"ont d'autres types d'erreurs que fetchmail ne peut pas distinguer\r\n"
+-"de celle-ci car ils n'envoient pas de messages d'erreur utiles\r\n"
+-"en cas d'échec du login.\r\n"
+-"\r\n"
+-"Le démon fetchmail va continuer à s'exécuter et à tenter de se connecter\r\n"
+-"a chaque réveil. Il n'y aura plus d'autre notifications jusqu'à ce que\r\n"
+-"le service soit réactivé.\r\n"
+-"\r"
++"Votre demande d'autorisation a échoué.\n"
++"Votre mot de passe est probablement erroné, mais certains serveurs\n"
++"ont d'autres types d'erreurs que fetchmail ne peut pas distinguer\n"
++"de celle-ci car ils n'envoient pas de messages d'erreur utiles\n"
++"en cas d'échec du login.\n"
++"\n"
++"Le démon fetchmail va continuer à s'exécuter et à tenter de se connecter\n"
++"a chaque réveil. Il n'y aura plus d'autre notifications jusqu'à ce que\n"
++"le service soit réactivé."
+ 
+ #: driver.c:1136
+ #, c-format
+@@ -356,17 +355,17 @@
+ 
+ #: driver.c:1171
+ #, c-format
+-msgid "Subject: fetchmail authentication OK on %s@%s\r\n"
+-msgstr "Subject: l'authentification de fetchmail a réussie sur %s@%s\r\n"
++msgid "Subject: fetchmail authentication OK on %s@%s\n"
++msgstr "Subject: l'authentification de fetchmail a réussie sur %s@%s\n"
+ 
+ #: driver.c:1174
+ #, c-format
+-msgid "Fetchmail was able to log into %s@%s.\r\n"
+-msgstr "Fetchmail n'a pu enregistrer dans le journal (%s@%s).\r\n"
++msgid "Fetchmail was able to log into %s@%s.\n"
++msgstr "Fetchmail n'a pu enregistrer dans le journal (%s@%s).\n"
+ 
+ #: driver.c:1178
+-msgid "Service has been restored.\r\n"
+-msgstr "Le service a été réactivé\r\n"
++msgid "Service has been restored.\n"
++msgstr "Le service a été réactivé\n"
+ 
+ #: driver.c:1209
+ #, c-format
+@@ -2453,11 +2452,11 @@
+ 
+ #: sink.c:1474
+ msgid ""
+-"--\r\n"
+-"\t\t\t\tThe Fetchmail Daemon\r\n"
++"--\n"
++"\t\t\t\tThe Fetchmail Daemon\n"
+ msgstr ""
+-"--\r\n"
+-"\t\t\t\tLe Démon Fetchmail\r\n"
++"--\n"
++"\t\t\t\tLe Démon Fetchmail\n"
+ 
+ #: smtp.c:85
+ msgid "ESMTP CRAM-MD5 Authentication...\n"
