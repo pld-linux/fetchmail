@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.9.8
+Version:	5.9.9
 Release:	1
 License:	GPL
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
@@ -18,7 +18,6 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-shroud.patch
-#Patch1:		%{name}-from64tobits.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	autoconf
@@ -136,13 +135,12 @@ SySV init skrypt do uruchamiania systemowego fetchmaila jako daemon.
 %setup -q
 chmod -R u+w *
 %patch0 -p1
-#%patch1 -p1
 
 %build
-cp -f /usr/share/automake/config.* .
 gettextize --copy --force
 aclocal
 autoconf
+automake -a -c -f || :
 %configure \
 	--enable-nls \
 	--without-included-gettext \
