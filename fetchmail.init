@@ -22,7 +22,7 @@
 
 # Check that networking is up.
 if is_no "${NETWORKING}"; then
-	msg_Network_Down "fetchmail"
+	msg_network_down "fetchmail"
 	exit 1
 fi
 
@@ -41,7 +41,7 @@ case "$1" in
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/fetchmail
 	else
-		msg_Already_Running fetchmail
+		msg_already_running fetchmail
 		exit 1
 	fi
         ;;
@@ -51,7 +51,7 @@ case "$1" in
 		killproc fetchmail
 		rm -f /var/lock/subsys/fetchmail >/dev/null 2>&1
 	else
-		msg_Not_Running "fetchmail"
+		msg_not_running "fetchmail"
 		exit 1
 	fi	
         ;;
@@ -67,7 +67,7 @@ case "$1" in
 		deltext
 		ok		
 	else
-		msg_Not_Running fetchmail
+		msg_not_running fetchmail
 		exit 1
 	fi
 	;;
@@ -85,7 +85,7 @@ case "$1" in
 	exit $?
         ;;
   *)
-	msg_Usage "$0 {start|stop|status|restart|reload|force-reload}"
+	msg_usage "$0 {start|stop|status|restart|reload|force-reload}"
         exit 1
 esac
 
