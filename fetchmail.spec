@@ -141,7 +141,7 @@ CFLAGS="$RPM_OPT_FLAGS -DSSL_ENABLE"
 	--enable-NTLM \
 	--enable-SDPS \
 	--with-ssl=%{_prefix}
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
