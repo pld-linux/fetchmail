@@ -10,12 +10,12 @@ Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩm
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
-Version:	6.2.3
+Version:	6.2.4
 Release:	1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://catb.org/~esr/fetchmail/%{name}-%{version}.tar.gz
-# Source0-md5:	e131bdb6c3977fd47a3e122c43dcf19d
+# Source0-md5:	3614acbda936548d2f8d5bffb161ff59
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
