@@ -21,9 +21,13 @@
 [ -f /etc/sysconfig/network ] && . /etc/sysconfig/network
 
 # Check that networking is up.
-if is_no "${NETWORKING}"; then
-	msg_network_down "fetchmail"
-	exit 1
+if is_yes "${NETWORKING}"; then
+	if [ ! -f /var/lock/subsys/network ]; then
+		msg_network_down "fetchmail"
+		exit 1
+	fi
+else
+	exit 0
 fi
 
 # Check that fetchmailrc exists.
@@ -44,7 +48,7 @@ case "$1" in
 		msg_already_running fetchmail
 		exit 1
 	fi
-        ;;
+	;;
   stop)
 	if [ -f /var/lock/subsys/fetchmail ]; then
 		msg_stopping "fetchmail"
@@ -54,25 +58,25 @@ case "$1" in
 		msg_not_running "fetchmail"
 		exit 1
 	fi	
-        ;;
+	;;
   restart)
-        $0 stop
+	$0 stop
 	$0 start
-        ;;
+	;;
   reload)
 	if [ -f /var/lock/subsys/fetchmail ]; then
 		msg_reloading "fetchmail"
 		busy
 		killproc fetchmail -HUP
-		deltext
-		ok		
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && ok || died
 	else
 		msg_not_running fetchmail
 		exit 1
 	fi
 	;;
   force-reload)
-  	# if program allows reloading without stopping
+	# if program allows reloading without stopping
 	$0 reload
 	exit $?
 
@@ -83,10 +87,10 @@ case "$1" in
   status)
 	status fetchmail
 	exit $?
-        ;;
+	;;
   *)
-	msg_usage "$0 {start|stop|status|restart|reload|force-reload}"
-        exit 1
+	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
+	exit 1
 esac
 
 exit $RETVAL
