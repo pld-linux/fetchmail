@@ -127,10 +127,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/fetchmail
 %{_mandir}/man1/fetchmail.1*
 
-%lang(es)    /usr/share/locale/es/LC_MESSAGES/fetchmail.mo
-%lang(fr)    /usr/share/locale/fr/LC_MESSAGES/fetchmail.mo
-%lang(pl)    /usr/share/locale/pl/LC_MESSAGES/fetchmail.mo
-%lang(pt_BR) /usr/share/locale/pt_BR/LC_MESSAGES/fetchmail.mo
+%lang(es)    %{_datadir}/locale/es/LC_MESSAGES/fetchmail.mo
+%lang(fr)    %{_datadir}/locale/fr/LC_MESSAGES/fetchmail.mo
+%lang(pl)    %{_datadir}/locale/pl/LC_MESSAGES/fetchmail.mo
+%lang(pt_BR) %{_datadir}/locale/pt_BR/LC_MESSAGES/fetchmail.mo
 
 %files -n fetchmailconf
 %defattr(644,root,root,755)
