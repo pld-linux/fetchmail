@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_without	ssl	# build without SSL support
 %bcond_without	ipv6	# build without IPv6 support
+#
 Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
 Summary(da):	Alsidig POP/IMAP post-afhentnings dæmon
 Summary(de):	Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
