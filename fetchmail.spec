@@ -117,12 +117,12 @@ echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FEATURES README NEWS NOTES *.html FAQ COPYING
 
-%find_lang fetchmail
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f fetchmail.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc {FEATURES,README,NEWS,NOTES,*.html,FAQ,COPYING}.gz sample.rcfile
 
