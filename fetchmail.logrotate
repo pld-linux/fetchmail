@@ -1,5 +1,0 @@
-/var/log/fetchmail {
-    postrotate
-	/etc/rc.d/init.d/fetchmail restart >/dev/null 2>&1
-    endscript
-}
