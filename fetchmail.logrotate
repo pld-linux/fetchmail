@@ -1,5 +1,5 @@
 /var/log/fetchmail {
     postrotate
-	/bin/killall -HUP fetchmaild || :
+	/etc/rc.d/init.d/fetchmail restart >/dev/null 2>&1
     endscript
 }
