@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.5.5
+Version:	5.5.6
 Release:	1
 License:	GPL
 Group:		Applications/Mail
@@ -151,7 +151,7 @@ install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Administration
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 
@@ -191,9 +191,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/rhs/control-panel/*
 %attr(755,root,root) %{_bindir}/fetchmailconf
+%{_applnkdir}/Settings/fetchmailconf.desktop
 %{_mandir}/man1/fetchmailconf.1*
-
-%{_applnkdir}/Administration/fetchmailconf.desktop
 
 %files daemon
 %defattr(644,root,root,755)
