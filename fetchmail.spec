@@ -7,7 +7,7 @@ Summary(pl):	Zdalny demon pocztowy do protoko³ów POP2, POP3, APOP, IMAP
 Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
-Version:	5.3.8
+Version:	5.4.0
 Release:	1
 License:	GPL
 Group:		Applications/Mail
@@ -35,7 +35,7 @@ server (normally sendmail).
 %description -l da
 Fetchmail er et gratis, robust, alsidigt og vel-dokumenteret værktøj til
 afhentning og videresending af elektronisk post via TCP/IP baserede
-opkalds-forbindelser (såsom SLIP eller PPP forbindelser).  Den henter post
+opkalds-forbindelser (såsom SLIP eller PPP forbindelser). Den henter post
 fra en ekstern post-server, og videresender den til din lokale
 klient-maskines post-system, så den kan læses af almindelige mail klienter
 såsom mutt, elm, pine, (x)emacs/gnus, eller mailx. Der medfølger også et
@@ -55,10 +55,10 @@ geeignet zum Gebrauch durch Endbenutzer wird mitgeliefert.
 %description -l es
 Fetchmail es una utilidad gratis, completa, robusta y bien documentada para
 la recepción y reeenvío de correo pensada para ser usada en co- nexiones
-TCP/IP por demanda (como SLIP y PPP). Recibe el correo de servidores remotos
-y lo reenvía al sistema de entrega local, siendo de ese modo posible leerlo
-con programas como mutt, elm, pine, (x)emacs/gnus o mailx. Contiene un
-configurador GUI interactivo pensado para usuarios.
+TCP/IP por demanda (como SLIP y PPP). Recibe el correo de servidores
+remotos y lo reenvía al sistema de entrega local, siendo de ese modo
+posible leerlo con programas como mutt, elm, pine, (x)emacs/gnus o mailx.
+Contiene un configurador GUI interactivo pensado para usuarios.
 
 %description -l fr
 Fetchmail est un programme utilisé pour récupérer le mail depuis un serveur
@@ -144,20 +144,20 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
-	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/Administration \
+	$RPM_BUILD_ROOT%{_applnkdir}/Administration \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
 install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Administration
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Administration
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FEATURES README NEWS NOTES *.html FAQ
 
-touch $RPM_BUILD_ROOT/etc/fetchmailrc
+touch $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 
 %find_lang %{name}
 
@@ -193,9 +193,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/fetchmailconf
 %{_mandir}/man1/fetchmailconf.1*
 
-/usr/X11R6/share/applnk/Administration/fetchmailconf.desktop
+%{_applnkdir}/Administration/fetchmailconf.desktop
 
 %files daemon
-%attr(600,root,root) %config(noreplace,missingok) /etc/fetchmailrc
+%defattr(644,root,root,755)
+%attr(600,root,root) %config(noreplace,missingok) %{_sysconfdir}/fetchmailrc
 %attr(754,root,root) /etc/rc.d/init.d/fetchmail
 %attr(640,root,root) %config(noreplace) /etc/sysconfig/fetchmail
