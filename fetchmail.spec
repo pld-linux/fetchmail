@@ -8,7 +8,7 @@ Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
 Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlýmý
 Name:		fetchmail
 Version:	5.3.0
-Release:	1
+Release:	2
 Copyright:	freely redistributable
 Group:		Applications/Mail
 Group(pl):	Aplikacje/Poczta
@@ -16,6 +16,8 @@ Group(pt):	Aplicações/Correio Eletrônico
 Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	fetchmailconf.desktop
+Source2:	fetchmail.sysconfig
+Source3:	fetchmail.init
 Patch0:		fetchmail-DESTDIR.patch
 Patch1:		fetchmail-IPv6.patch
 Icon:		fetchmail.gif
@@ -41,7 +43,7 @@ såsom mutt, elm, pine, (x)emacs/gnus, eller mailx. Der medfølger også et
 interaktivt GUI-baseret konfigurations-program, som kan bruges af
 almindelige brugere.
 
-%description -l de                                                                                            
+%description -l de
 Fetchmail ist ein freies, vollständiges, robustes und wohldokumentiertes
 Werkzeug zum Abholen und Weiterreichen von E-Mail, gedacht zum Gebrauchüber
 temporäre TCP/IP-Verbindungen (wie z.B. SLIP- oder PPP-Verbindungen). Es
@@ -128,18 +130,30 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel \
-	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/Administration
+	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/Administration \
+	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
 install rh-config/*.{xpm,init} $RPM_BUILD_ROOT%{_libdir}/rhs/control-panel
 install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Administration
-
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FEATURES README NEWS NOTES *.html FAQ COPYING
 
 %find_lang %{name}
+
+%post
+/sbin/chkconfig --add fetchmail
+/etc/rc.d/init.d/fetchmail restart >&2
+
+%preun
+if [ "$1" = "0" ]; then
+	/etc/rc.d/init.d/fetchmail stop >&2
+	/sbin/checkconfig --del fetchmail
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -150,6 +164,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
+
+# %attr(600,root,root) %config(noreplace,missingok) /etc/fetchmailrc
+%attr(755,root,root) /etc/rc.d/init.d/fetchmail
+%config(noreplace) /etc/sysconfig/fetchmail
 
 %files -n fetchmailconf
 %defattr(644,root,root,755)
