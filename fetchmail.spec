@@ -65,7 +65,7 @@ SMTP local (sendmail normal).
 
 %description -l pl
 Fetchmail jest programem do ¶ci±gania poczty ze zdalnych serwerów
-pocztowych. Do ¶ci±gania poczty mo¿e on uzywaæ protoko³ów POP (Post Office
+pocztowych. Do ¶ci±gania poczty mo¿e on u¿ywaæ protoko³ów POP (Post Office
 Protocol) lub IMAP (Internet Mail Access Protocol). ¦ci±gniêt± pocztê
 dostarcza do koñcowych odbiorców poprzez lokalny serwer SMTP.
 
