@@ -2,7 +2,8 @@
 Name=Fetchmail
 Name[pl]=Fetchmail
 Comment=A graphical configuration tool for Fetchmail
-Comment[pl]=Graficzne narzêdzie konfiguracyjne dla Fechmail
+Comment[pl]=Graficzne narzÄ™dzie konfiguracyjne dla Fechmaila
 Exec=fetchmailconf
 Terminal=0
 Type=Application
+# vi: encoding=utf-8
