@@ -17,6 +17,7 @@ Vendor:		Eric S. Raymond <esr@thyrsus.com>
 Source0:	ftp://locke.ccil.org/pub/esr/fetchmail/%{name}-%{version}.tar.gz
 Source1:	fetchmailconf.desktop
 Patch1:		fetchmail-DESTDIR.patch
+Patch2:		fetchmail-kport.patch
 Icon:		fetchmail.gif
 URL:		http://www.tuxedo.org/~esr/fetchmail/
 BuildRequires:	openssl-devel >= 0.9.4-2
@@ -105,6 +106,7 @@ GUI konfigurator do fetchmaila napisany w pythonie.
 %prep
 %setup -q
 %patch1 -p0
+%patch2 -p1
 
 %build
 chmod +w aclocal.m4
