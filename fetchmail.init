@@ -6,6 +6,7 @@
 #
 # config:	/etc/fetchmailrc
 
+
 # Source function library.
 . /etc/rc.d/init.d/functions
 
@@ -13,10 +14,12 @@
 # Get service config - may override defaults
 [ -f /etc/sysconfig/fetchmail ] && . /etc/sysconfig/fetchmail
 
+# Get network config
+[ -f /etc/sysconfig/network ] && . /etc/sysconfig/network
+
 # Check that networking is up.
 if is_no "${NETWORKING}"; then
-	# nls "ERROR: Networking is down. %s can't be run." <service>
-	msg_Network_Down <service>
+	msg_Network_Down "fetchmail"
 	exit 1
 fi
 
@@ -27,25 +30,22 @@ fi
 case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/fetchmail ]; then
-		# show "Starting %s service." fetchmail
-		msg_starting fetchmail
+		msg_starting "fetchmail"
 		daemon fetchmail
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/fetchmail
 	else
-		# show "%s service is already running." fetchmail
 		msg_Already_Running fetchmail
 		exit 1
 	fi
         ;;
   stop)
 	if [ -f /var/lock/subsys/syslogd ]; then
-		msg_stopping fetchmail
+		msg_stopping "fetchmail"
 		killproc fetchmail
 		rm -f /var/lock/subsys/fetchmail >/dev/null 2>&1
 	else
-		# show "%s service is not running." fetchmail
-		msg_Not_Running fetchmail
+		msg_Not_Running "fetchmail"
 		exit 1
 	fi	
         ;;
