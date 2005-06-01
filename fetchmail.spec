@@ -123,7 +123,7 @@ Summary(pt):	Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo 
 Summary(ru):	Графическая утилита для конфигурации предпочтений для fetchmail
 Summary(uk):	Граф╕чна утил╕та для конф╕гурац╕╖ вподобань для fetchmail
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	python
 Requires:	python-tkinter
 
@@ -156,7 +156,7 @@ Fetchmailconf - це програма на Tcl/Tk для конф╕гурац╕╖ вашого файла
 Summary:	SysV init script for demonize fetchmail for sucking emails
 Summary(pl):	Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 PreReq:		rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
 
@@ -240,7 +240,7 @@ fi
 
 %files daemon
 %defattr(644,root,root,755)
-%attr(600,root,root) %config(noreplace,missingok) %verify(not md5 size mtime) %{_sysconfdir}/fetchmailrc
+%attr(600,root,root) %config(noreplace,missingok) %verify(not md5 mtime size) %{_sysconfdir}/fetchmailrc
 %attr(754,root,root) /etc/rc.d/init.d/fetchmail
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/sysconfig/fetchmail
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/logrotate.d/fetchmail
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/fetchmail
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/fetchmail
