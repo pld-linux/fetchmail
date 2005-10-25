@@ -16,7 +16,7 @@ Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
 Version:	6.2.9
-Release:	0.rc6.1
+Release:	0.rc6.2
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}-rc6.tar.bz2
@@ -231,7 +231,7 @@ fi
 %attr(755,root,root) %{_bindir}/fetchmailconf
 %{_desktopdir}/fetchmailconf.desktop
 %{_mandir}/man1/fetchmailconf.1*
-%{%py_sitescriptdir}/*.py[co]
+%{py_sitescriptdir}/*.py[co]
 
 %files daemon
 %defattr(644,root,root,755)
