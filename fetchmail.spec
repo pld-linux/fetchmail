@@ -231,7 +231,7 @@ fi
 %attr(755,root,root) %{_bindir}/fetchmailconf
 %{_desktopdir}/fetchmailconf.desktop
 %{_mandir}/man1/fetchmailconf.1*
-%{py_sitedir}/*.py[co]
+%{%py_sitescriptdir}/*.py[co]
 
 %files daemon
 %defattr(644,root,root,755)
