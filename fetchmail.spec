@@ -16,11 +16,13 @@ Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
 Version:	6.2.9
-Release:	0.rc6.2
+%define	_rc	rc7
+%define	_rel	1
+Release:	0.%{_rc}.%{_rel}
 License:	GPL
 Group:		Applications/Mail
-Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}-rc6.tar.bz2
-# Source0-md5:	9e48f58338fcfc63f8920cd720a63e3e
+Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}-%{_rc}.tar.bz2
+# Source0-md5:	6a2b96b2e0661353582f88b8fd3eb6d9
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
@@ -32,6 +34,7 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
 %{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7d}
+BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -153,18 +156,19 @@ Fetchmailconf - це програма на Tcl/Tk для конф╕гурац╕╖ вашого файла
 Summary:	SysV init script for demonize fetchmail for sucking emails
 Summary(pl):	Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona
 Group:		Applications/System
-Requires:	%{name} = %{version}-%{release}
-PreReq:		rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
+Requires:	%{name} = %{version}-%{release}
+Requires:	rc-scripts
 
 %description daemon
 SysV init script for demonize fetchmail for sucking emails.
 
 %description daemon -l pl
-Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona.
+Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako
+demona.
 
 %prep
-%setup -q -n %{name}-%{version}-rc6
+%setup -q -n %{name}-%{version}-%{_rc}
 
 %build
 cp -f /usr/share/automake/config.* .
@@ -200,6 +204,8 @@ echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 > $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 
 %find_lang %{name}
+
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
