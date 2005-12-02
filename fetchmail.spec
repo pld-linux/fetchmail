@@ -15,14 +15,12 @@ Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩm
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
-Version:	6.2.9
-%define	_rc	rc7
-%define	_rel	1
-Release:	0.%{_rc}.%{_rel}
+Version:	6.3.0
+Release:	1
 License:	GPL
 Group:		Applications/Mail
-Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}-%{_rc}.tar.bz2
-# Source0-md5:	6a2b96b2e0661353582f88b8fd3eb6d9
+Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}.tar.bz2
+# Source0-md5:	b547b59f352af956911ce812773b3976
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
@@ -168,7 +166,7 @@ Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako
 demona.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_rc}
+%setup -q
 
 %build
 cp -f /usr/share/automake/config.* .
