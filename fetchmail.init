@@ -56,7 +56,7 @@ case "$1" in
 		rm -f /var/lock/subsys/fetchmail >/dev/null 2>&1
 	else
 		msg_not_running "fetchmail"
-	fi	
+	fi
 	;;
   restart)
 	$0 stop
