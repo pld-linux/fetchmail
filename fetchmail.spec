@@ -26,7 +26,6 @@ Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
 Patch0:		%{name}-pl.po-update.patch
-Icon:		fetchmail.gif
 URL:		http://fetchmail.berlios.de/
 BuildRequires:	automake
 BuildRequires:	bison
