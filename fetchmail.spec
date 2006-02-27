@@ -31,7 +31,7 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
 %{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7d}
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -209,17 +209,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post daemon
 /sbin/chkconfig --add fetchmail
-if [ -f /var/lock/subsys/fetchmail ]; then
-	/etc/rc.d/init.d/fetchmail restart >&2
-else
-	echo "Run \"/etc/rc.d/init.d/fetchmail start\" to start fetchmail daemon."
-fi
+%service fetchmail restart "fetchmail daemon"
 
 %preun daemon
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/fetchmail ]; then
-		/etc/rc.d/init.d/fetchmail stop >&2
-	fi
+	%service fetchmail stop
 	/sbin/chkconfig --del fetchmail
 fi
 
