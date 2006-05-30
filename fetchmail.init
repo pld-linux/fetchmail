@@ -69,7 +69,7 @@ case "$1" in
 		killproc fetchmail -HUP
 		RETVAL=$?
 	else
-		msg_not_running fetchmail >&2
+		msg_not_running fetchmail
 		exit 7
 	fi
 	;;
