@@ -170,6 +170,9 @@ demona.
 %setup -q
 %patch0 -p1
 
+# to rebuild po/pl.gmo
+rm -f po/stamp-po
+
 %build
 cp -f /usr/share/automake/config.* .
 %configure \
