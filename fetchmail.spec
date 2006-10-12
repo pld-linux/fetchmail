@@ -15,17 +15,18 @@ Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩm
 Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
 Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
 Name:		fetchmail
-Version:	6.3.4
-Release:	2
+Version:	6.3.5
+Release:	1
 License:	GPL
 Group:		Applications/Mail
 #Source0Download: http://developer.berlios.de/project/showfiles.php?group_id=1824
 Source0:	http://download2.berlios.de/fetchmail/%{name}-%{version}.tar.bz2
-# Source0-md5:	35ded0414fcff79b492d6ade2ce48911
+# Source0-md5:	e8dc5cd8e80677bb60e397d6171d12ec
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
+Patch0:		%{name}-pl.po-update.patch
 URL:		http://fetchmail.berlios.de/
 BuildRequires:	automake
 BuildRequires:	bison
@@ -167,6 +168,7 @@ demona.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
