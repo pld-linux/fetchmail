@@ -15,13 +15,13 @@ Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazýlým
 Summary(uk):	õÔÉÌ¦ÔÁ ÏÔÒÉÍÁÎÎÑ ÐÏÛÔÉ Ú ×¦ÄÄÁÌÅÎÏ§ ÍÁÛÉÎÉ ÐÏ ÐÒÏÔÏËÏÌÁÍ POP/IMAP
 Summary(zh_CN):	¹¦ÄÜÇ¿´óµÄ POP/IMAP µç×ÓÓÊ¼þÊÕÈ¡ÊØ»¤½ø³Ì
 Name:		fetchmail
-Version:	6.3.5
+Version:	6.3.6
 Release:	1
 License:	GPL
 Group:		Applications/Mail
 #Source0Download: http://developer.berlios.de/project/showfiles.php?group_id=1824
 Source0:	http://download2.berlios.de/fetchmail/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8dc5cd8e80677bb60e397d6171d12ec
+# Source0-md5:	4fab7ca100ca36e41a2e8dbf5b32a3cf
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
@@ -32,7 +32,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-%{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7d}
+%{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7l}
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
