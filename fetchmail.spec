@@ -1,3 +1,4 @@
+# TODO: kerberos5/gssapi support?
 #
 # Conditional build:
 %bcond_without	ssl	# build without SSL support
