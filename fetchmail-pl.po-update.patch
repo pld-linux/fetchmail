@@ -1,6 +1,12 @@
---- fetchmail-6.3.6/po/pl.po.orig	2007-01-08 21:22:20.000000000 +0100
-+++ fetchmail-6.3.6/po/pl.po	2007-01-08 21:26:12.000000000 +0100
-@@ -6,10 +6,10 @@
+--- fetchmail-6.3.6/po/pl.po.orig	2007-01-13 22:41:28.412783789 +0100
++++ fetchmail-6.3.6/po/pl.po	2007-01-13 22:43:30.587746144 +0100
+@@ -1,15 +1,15 @@
+ # Polish translation for fetchmail.
+ # Copyright (C) 1998, 2002, 2003, 2005 Eric S. Raymond
+ # Pawe³ Krawczyk <kravietz@ceti.pl>, 1998-1999.
+-# Jakub Bogusz <qboosh@pld-linux.org>, 2002-2006.
++# Jakub Bogusz <qboosh@pld-linux.org>, 2002-2007.
+ # Thanks for few updates to Adam Go³êbiowski, 2003.
  #
  msgid ""
  msgstr ""
@@ -9,7 +15,44 @@
  "Report-Msgid-Bugs-To: fetchmail-devel@lists.berlios.de\n"
  "POT-Creation-Date: 2006-12-19 01:19+0100\n"
 -"PO-Revision-Date: 2006-12-01 17:03+0100\n"
-+"PO-Revision-Date: 2007-01-08 21:24+0100\n"
++"PO-Revision-Date: 2007-01-13 22:40+0100\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
+@@ -919,19 +919,16 @@
+ msgstr "obs³uga SSL nie zosta³a wkompilowana.\n"
+ 
+ #: fetchmail.c:1228
+-#, fuzzy
+ msgid "KERBEROS v4 support is configured, but not compiled in.\n"
+-msgstr "obs³uga SSL nie zosta³a wkompilowana.\n"
++msgstr "obs³uga KERBEROSA v4 jest skonfigurowana, ale nie zosta³a wkompilowana.\n"
+ 
+ #: fetchmail.c:1234
+-#, fuzzy
+ msgid "KERBEROS v5 support is configured, but not compiled in.\n"
+-msgstr "obs³uga SSL nie zosta³a wkompilowana.\n"
++msgstr "obs³uga KERBEROSA v5 jest skonfigurowana, ale nie zosta³a wkompilowana.\n"
+ 
+ #: fetchmail.c:1240
+-#, fuzzy
+ msgid "GSSAPI support is configured, but not compiled in.\n"
+-msgstr "obs³uga SSL nie zosta³a wkompilowana.\n"
++msgstr "obs³uga GSSAPI jest skonfigurowana, ale nie zosta³a wkompilowana.\n"
+ 
+ #: fetchmail.c:1270
+ #, c-format
+@@ -2310,11 +2307,11 @@
+ 
+ #: pop3.c:449
+ msgid "TLS is mandatory for this session, but server refused CAPA command.\n"
+-msgstr ""
++msgstr "TLS jest wymagany dla tej sesji, ale serwer odrzuci³ polecenie CAPA.\n"
+ 
+ #: pop3.c:450
+ msgid "The CAPA command is however necessary for TLS.\n"
+-msgstr ""
++msgstr "Polecenie CAPA jest jednak niezbêdne dla TLS.\n"
+ 
+ #: pop3.c:525
+ #, c-format
