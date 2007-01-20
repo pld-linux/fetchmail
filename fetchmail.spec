@@ -202,6 +202,8 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/logrotate.d/%{name}
 
+sed 's,\.py,\.pyc,' fetchmailconf > $RPM_BUILD_ROOT%{_bindir}/fetchmailconf
+
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 
