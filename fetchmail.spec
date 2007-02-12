@@ -5,16 +5,16 @@
 %bcond_without	ipv6	# build without IPv6 support
 #
 Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
-Summary(da):	Alsidig POP/IMAP post-afhentnings dФmon
-Summary(de):	DДmon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
-Summary(es):	Recolector de correo via POP/IMAP
-Summary(fr):	DИmon de rИcupИration du mail pour POP2, POP3, APOP, IMAP
-Summary(pl):	Zdalny demon pocztowy do protokoЁСw POP2, POP3, APOP, IMAP
-Summary(pt):	Busca mensagens de um servidor usando POP ou IMAP
-Summary(ru):	Утилита извлечения почты с удаленной машины по протоколам POP/IMAP
-Summary(tr):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazЩlЩmЩ
-Summary(uk):	Утил╕та отримання пошти з в╕ддалено╖ машини по протоколам POP/IMAP
-Summary(zh_CN):	╧╕дэг©╢С╣д POP/IMAP ╣Гвссй╪Чйух║йь╩╓╫ЬЁл
+Summary(da.UTF-8):   Alsidig POP/IMAP post-afhentnings dц╕mon
+Summary(de.UTF-8):   Dц╓mon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
+Summary(es.UTF-8):   Recolector de correo via POP/IMAP
+Summary(fr.UTF-8):   Dц╘mon de rц╘cupц╘ration du mail pour POP2, POP3, APOP, IMAP
+Summary(pl.UTF-8):   Zdalny demon pocztowy do protokoе┌цЁw POP2, POP3, APOP, IMAP
+Summary(pt.UTF-8):   Busca mensagens de um servidor usando POP ou IMAP
+Summary(ru.UTF-8):   пёя┌п╦п╩п╦я┌п╟ п╦п╥п╡п╩п╣я┤п╣п╫п╦я▐ п©п╬я┤я┌я▀ я│ я┐п╢п╟п╩п╣п╫п╫п╬п╧ п╪п╟я┬п╦п╫я▀ п©п╬ п©я─п╬я┌п╬п╨п╬п╩п╟п╪ POP/IMAP
+Summary(tr.UTF-8):   POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazд╠lд╠mд╠
+Summary(uk.UTF-8):   пёя┌п╦п╩я√я┌п╟ п╬я┌я─п╦п╪п╟п╫п╫я▐ п©п╬я┬я┌п╦ п╥ п╡я√п╢п╢п╟п╩п╣п╫п╬я≈ п╪п╟я┬п╦п╫п╦ п©п╬ п©я─п╬я┌п╬п╨п╬п╩п╟п╪ POP/IMAP
+Summary(zh_CN.UTF-8):   Е┼÷Х┐╫Е╪╨Е╓╖Г └ POP/IMAP Г■╣Е╜░И┌╝Д╩╤Ф■╤Е▐√Е╝┬Ф┼╓Х©⌡Г╗▀
 Name:		fetchmail
 Version:	6.3.6
 Release:	2
@@ -44,20 +44,20 @@ mail server. It can use the Post Office Protocol (POP) or IMAP
 (Internet Mail Access Protocol) for this, and delivers the mail
 through the local SMTP server (normally sendmail).
 
-%description -l da
-Fetchmail er et gratis, robust, alsidigt og vel-dokumenteret vФrktЬj
+%description -l da.UTF-8
+Fetchmail er et gratis, robust, alsidigt og vel-dokumenteret vц╕rktц╦j
 til afhentning og videresending af elektronisk post via TCP/IP
-baserede opkalds-forbindelser (sЕsom SLIP eller PPP forbindelser). Den
+baserede opkalds-forbindelser (sц╔som SLIP eller PPP forbindelser). Den
 henter post fra en ekstern post-server, og videresender den til din
-lokale klient-maskines post-system, sЕ den kan lФses af almindelige
-mail klienter sЕsom mutt, elm, pine, (x)emacs/gnus, eller mailx. Der
-medfЬlger ogsЕ et interaktivt GUI-baseret konfigurations-program, som
+lokale klient-maskines post-system, sц╔ den kan lц╕ses af almindelige
+mail klienter sц╔som mutt, elm, pine, (x)emacs/gnus, eller mailx. Der
+medfц╦lger ogsц╔ et interaktivt GUI-baseret konfigurations-program, som
 kan bruges af almindelige brugere.
 
-%description -l de
-Fetchmail ist ein freies, vollstДndiges, robustes und
+%description -l de.UTF-8
+Fetchmail ist ein freies, vollstц╓ndiges, robustes und
 wohldokumentiertes Werkzeug zum Abholen und Weiterreichen von E-Mail,
-gedacht zum GebrauchЭber temporДre TCP/IP-Verbindungen (wie z.B. SLIP-
+gedacht zum Gebrauchц╪ber temporц╓re TCP/IP-Verbindungen (wie z.B. SLIP-
 oder PPP-Verbindungen). Es holt E-Mail von (weit) entfernten
 Mail-Servern abund reicht sie an das Auslieferungssystem der lokalen
 Client-Maschine weiter, damit sie dann von normalen MUAs ("mail user
@@ -65,63 +65,63 @@ agents") wie mutt, elm, pine, (x)emacs/gnus oder mailx gelesen werden
 kann. Ein interaktiver GUI-Konfigurator auch gut geeignet zum Gebrauch
 durch Endbenutzer wird mitgeliefert.
 
-%description -l es
+%description -l es.UTF-8
 Fetchmail es una utilidad gratis, completa, robusta y bien documentada
-para la recepciСn y reeenvМo de correo pensada para ser usada en co-
+para la recepciцЁn y reeenvц╜o de correo pensada para ser usada en co-
 nexiones TCP/IP por demanda (como SLIP y PPP). Recibe el correo de
-servidores remotos y lo reenvМa al sistema de entrega local, siendo de
+servidores remotos y lo reenvц╜a al sistema de entrega local, siendo de
 ese modo posible leerlo con programas como mutt, elm, pine,
 (x)emacs/gnus o mailx. Contiene un configurador GUI interactivo
 pensado para usuarios.
 
-%description -l fr
-Fetchmail est un programme utilisИ pour rИcupИrer le mail depuis un
+%description -l fr.UTF-8
+Fetchmail est un programme utilisц╘ pour rц╘cupц╘rer le mail depuis un
 serveur distant. Il peut utiliser POP (Post Office Protocol) ou IMAP
-(Internet Mail Access Protocol) pour cela, et achemine le courrier Ю
+(Internet Mail Access Protocol) pour cela, et achemine le courrier ц═
 travers le serveur SMTP local (sendmail normal).
 
-%description -l pl
-Fetchmail jest programem do ╤ci╠gania poczty ze zdalnych serwerСw
-pocztowych. Do ╤ci╠gania poczty mo©e on u©ywaФ protokoЁСw POP (Post
-Office Protocol) lub IMAP (Internet Mail Access Protocol). ╕ci╠gniЙt╠
-pocztЙ dostarcza odbiorcom poprzez lokalny serwer SMTP.
+%description -l pl.UTF-8
+Fetchmail jest programem do е⌡ciд┘gania poczty ze zdalnych serwerцЁw
+pocztowych. Do е⌡ciд┘gania poczty moе╪e on uе╪ywaд┤ protokoе┌цЁw POP (Post
+Office Protocol) lub IMAP (Internet Mail Access Protocol). е ciд┘gniд≥tд┘
+pocztд≥ dostarcza odbiorcom poprzez lokalny serwer SMTP.
 
-%description -l pt
-fetchmail И um programa que И usado para recuperar mensagens de um
+%description -l pt.UTF-8
+fetchmail ц╘ um programa que ц╘ usado para recuperar mensagens de um
 servidor de mail remoto. Ele pode usar Post Office Protocol (POP) ou
 IMAP (Internet Mail Access Protocol) para isso, e entrega o mail
-atravИs do servidor local SMTP (normalmente sendmail).
+atravц╘s do servidor local SMTP (normalmente sendmail).
 
-%description -l ru
-Fetchmail - это утилита извлечения почты с удаленной машины и
-форвардинга, предназначенная для использования на on-demand TCP/IP
-соединениях, таких как SLIP или PPP соеднения. Fetchmail поддерживает
-все используемые в настоящее время в Инернете протоколы удаленной
-почты (POP2, POP3, RPOP, APOP, KPOP, все IMAPы, ESMTP ETRN). Затем
-Fetchmail форвардит извлеченную почту через SMTP, чтобы ви могли
-прочитать ее своим любимым почтовым клиентом.
+%description -l ru.UTF-8
+Fetchmail - я█я┌п╬ я┐я┌п╦п╩п╦я┌п╟ п╦п╥п╡п╩п╣я┤п╣п╫п╦я▐ п©п╬я┤я┌я▀ я│ я┐п╢п╟п╩п╣п╫п╫п╬п╧ п╪п╟я┬п╦п╫я▀ п╦
+я└п╬я─п╡п╟я─п╢п╦п╫пЁп╟, п©я─п╣п╢п╫п╟п╥п╫п╟я┤п╣п╫п╫п╟я▐ п╢п╩я▐ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦я▐ п╫п╟ on-demand TCP/IP
+я│п╬п╣п╢п╦п╫п╣п╫п╦я▐я┘, я┌п╟п╨п╦я┘ п╨п╟п╨ SLIP п╦п╩п╦ PPP я│п╬п╣п╢п╫п╣п╫п╦я▐. Fetchmail п©п╬п╢п╢п╣я─п╤п╦п╡п╟п╣я┌
+п╡я│п╣ п╦я│п©п╬п╩я▄п╥я┐п╣п╪я▀п╣ п╡ п╫п╟я│я┌п╬я▐я┴п╣п╣ п╡я─п╣п╪я▐ п╡ п≤п╫п╣я─п╫п╣я┌п╣ п©я─п╬я┌п╬п╨п╬п╩я▀ я┐п╢п╟п╩п╣п╫п╫п╬п╧
+п©п╬я┤я┌я▀ (POP2, POP3, RPOP, APOP, KPOP, п╡я│п╣ IMAPя▀, ESMTP ETRN). п≈п╟я┌п╣п╪
+Fetchmail я└п╬я─п╡п╟я─п╢п╦я┌ п╦п╥п╡п╩п╣я┤п╣п╫п╫я┐я▌ п©п╬я┤я┌я┐ я┤п╣я─п╣п╥ SMTP, я┤я┌п╬п╠я▀ п╡п╦ п╪п╬пЁп╩п╦
+п©я─п╬я┤п╦я┌п╟я┌я▄ п╣п╣ я│п╡п╬п╦п╪ п╩я▌п╠п╦п╪я▀п╪ п©п╬я┤я┌п╬п╡я▀п╪ п╨п╩п╦п╣п╫я┌п╬п╪.
 
-%description -l tr
-fetchmail yazЩlЩmЩ, POP veya IMAP desteПi veren bir sunucuda yer alan
-mektuplarЩnЩzЩ alЩr.
+%description -l tr.UTF-8
+fetchmail yazд╠lд╠mд╠, POP veya IMAP desteд÷i veren bir sunucuda yer alan
+mektuplarд╠nд╠zд╠ alд╠r.
 
-%description -l uk
-Fetchmail - це утил╕та отримання пошти з в╕ддалено╖ машини та
-форвардингу, призначена для використання на on-demand TCP/IP
-з'╓днаннях, таких як SLIP чи PPP з'╓днання. Fetchmail п╕дтриму╓ вс╕
-використовуван╕ на сьогодн╕ протоколи в╕ддалено╖ пошти (POP2, POP3,
-RPOP, APOP, KPOP, вс╕ IMAPи, ESMTP ETRN). П╕сля отримання Fetchmail
-форвардить пошту через SMTP, щоб ви могли прочитати ╖╖ сво╖м улюбленим
-поштовим кл╕╓нтом.
+%description -l uk.UTF-8
+Fetchmail - я├п╣ я┐я┌п╦п╩я√я┌п╟ п╬я┌я─п╦п╪п╟п╫п╫я▐ п©п╬я┬я┌п╦ п╥ п╡я√п╢п╢п╟п╩п╣п╫п╬я≈ п╪п╟я┬п╦п╫п╦ я┌п╟
+я└п╬я─п╡п╟я─п╢п╦п╫пЁя┐, п©я─п╦п╥п╫п╟я┤п╣п╫п╟ п╢п╩я▐ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ п╫п╟ on-demand TCP/IP
+п╥'я■п╢п╫п╟п╫п╫я▐я┘, я┌п╟п╨п╦я┘ я▐п╨ SLIP я┤п╦ PPP п╥'я■п╢п╫п╟п╫п╫я▐. Fetchmail п©я√п╢я┌я─п╦п╪я┐я■ п╡я│я√
+п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐п╡п╟п╫я√ п╫п╟ я│я▄п╬пЁп╬п╢п╫я√ п©я─п╬я┌п╬п╨п╬п╩п╦ п╡я√п╢п╢п╟п╩п╣п╫п╬я≈ п©п╬я┬я┌п╦ (POP2, POP3,
+RPOP, APOP, KPOP, п╡я│я√ IMAPп╦, ESMTP ETRN). п÷я√я│п╩я▐ п╬я┌я─п╦п╪п╟п╫п╫я▐ Fetchmail
+я└п╬я─п╡п╟я─п╢п╦я┌я▄ п©п╬я┬я┌я┐ я┤п╣я─п╣п╥ SMTP, я┴п╬п╠ п╡п╦ п╪п╬пЁп╩п╦ п©я─п╬я┤п╦я┌п╟я┌п╦ я≈я≈ я│п╡п╬я≈п╪ я┐п╩я▌п╠п╩п╣п╫п╦п╪
+п©п╬я┬я┌п╬п╡п╦п╪ п╨п╩я√я■п╫я┌п╬п╪.
 
 %package -n fetchmailconf
 Summary:	A GUI configurator for generating fetchmail configuration files
-Summary(es):	Configurador GUI interactivo por fetchmail
-Summary(fr):	GUI configurateur pour fetchmail
-Summary(pl):	Konfigurator GUI do fetchmaila
-Summary(pt):	Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo para o fetchmail
-Summary(ru):	Графическая утилита для конфигурации предпочтений для fetchmail
-Summary(uk):	Граф╕чна утил╕та для конф╕гурац╕╖ вподобань для fetchmail
+Summary(es.UTF-8):   Configurador GUI interactivo por fetchmail
+Summary(fr.UTF-8):   GUI configurateur pour fetchmail
+Summary(pl.UTF-8):   Konfigurator GUI do fetchmaila
+Summary(pt.UTF-8):   Um configurador grц║fico para a criaц╖цёo de arquivos de configuraц╖цёo para o fetchmail
+Summary(ru.UTF-8):   п⌠я─п╟я└п╦я┤п╣я│п╨п╟я▐ я┐я┌п╦п╩п╦я┌п╟ п╢п╩я▐ п╨п╬п╫я└п╦пЁя┐я─п╟я├п╦п╦ п©я─п╣п╢п©п╬я┤я┌п╣п╫п╦п╧ п╢п╩я▐ fetchmail
+Summary(uk.UTF-8):   п⌠я─п╟я└я√я┤п╫п╟ я┐я┌п╦п╩я√я┌п╟ п╢п╩я▐ п╨п╬п╫я└я√пЁя┐я─п╟я├я√я≈ п╡п©п╬п╢п╬п╠п╟п╫я▄ п╢п╩я▐ fetchmail
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
 Requires:	python
@@ -131,30 +131,30 @@ Requires:	python-tkinter
 A GUI configurator for generating fetchmail configuration file written
 in python.
 
-%description -n fetchmailconf -l de
-Ein interaktiver GUI-Konfigurator fЭr fetchmail in python.
+%description -n fetchmailconf -l de.UTF-8
+Ein interaktiver GUI-Konfigurator fц╪r fetchmail in python.
 
-%description -n fetchmailconf -l es
-Configurador grАfico para fetchmail escrito en python.
+%description -n fetchmailconf -l es.UTF-8
+Configurador grц║fico para fetchmail escrito en python.
 
-%description -n fetchmailconf -l pl
+%description -n fetchmailconf -l pl.UTF-8
 Konfigurator GUI do fetchmaila napisany w pythonie.
 
-%description -n fetchmailconf -l pt
-Um configurador grАfico para a criaГЦo de arquivos de configuraГЦo
+%description -n fetchmailconf -l pt.UTF-8
+Um configurador grц║fico para a criaц╖цёo de arquivos de configuraц╖цёo
 para o fetchmail.
 
-%description -n fetchmailconf -l ru
-Fetchmailconf - это программа на Tcl/Tk для конфигурации вашего файла
-предпочтений ~/.fetchmailrc.
+%description -n fetchmailconf -l ru.UTF-8
+Fetchmailconf - я█я┌п╬ п©я─п╬пЁя─п╟п╪п╪п╟ п╫п╟ Tcl/Tk п╢п╩я▐ п╨п╬п╫я└п╦пЁя┐я─п╟я├п╦п╦ п╡п╟я┬п╣пЁп╬ я└п╟п╧п╩п╟
+п©я─п╣п╢п©п╬я┤я┌п╣п╫п╦п╧ ~/.fetchmailrc.
 
-%description -n fetchmailconf -l uk
-Fetchmailconf - це програма на Tcl/Tk для конф╕гурац╕╖ вашого файла
-вподобань ~/.fetchmailrc.
+%description -n fetchmailconf -l uk.UTF-8
+Fetchmailconf - я├п╣ п©я─п╬пЁя─п╟п╪п╟ п╫п╟ Tcl/Tk п╢п╩я▐ п╨п╬п╫я└я√пЁя┐я─п╟я├я√я≈ п╡п╟я┬п╬пЁп╬ я└п╟п╧п╩п╟
+п╡п©п╬п╢п╬п╠п╟п╫я▄ ~/.fetchmailrc.
 
 %package daemon
 Summary:	SysV init script for demonize fetchmail for sucking emails
-Summary(pl):	Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona
+Summary(pl.UTF-8):   Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona
 Group:		Applications/System
 Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}-%{release}
@@ -163,7 +163,7 @@ Requires:	rc-scripts
 %description daemon
 SysV init script for demonize fetchmail for sucking emails.
 
-%description daemon -l pl
+%description daemon -l pl.UTF-8
 Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako
 demona.
 
