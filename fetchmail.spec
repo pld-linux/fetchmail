@@ -5,16 +5,16 @@
 %bcond_without	ipv6	# build without IPv6 support
 #
 Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
-Summary(da.UTF-8):   Alsidig POP/IMAP post-afhentnings dæmon
-Summary(de.UTF-8):   Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
-Summary(es.UTF-8):   Recolector de correo via POP/IMAP
-Summary(fr.UTF-8):   Démon de récupération du mail pour POP2, POP3, APOP, IMAP
-Summary(pl.UTF-8):   Zdalny demon pocztowy do protokołów POP2, POP3, APOP, IMAP
-Summary(pt.UTF-8):   Busca mensagens de um servidor usando POP ou IMAP
-Summary(ru.UTF-8):   Утилита извлечения почты с удаленной машины по протоколам POP/IMAP
-Summary(tr.UTF-8):   POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazılımı
-Summary(uk.UTF-8):   Утиліта отримання пошти з віддаленої машини по протоколам POP/IMAP
-Summary(zh_CN.UTF-8):   功能强大的 POP/IMAP 电子邮件收取守护进程
+Summary(da.UTF-8):	Alsidig POP/IMAP post-afhentnings dæmon
+Summary(de.UTF-8):	Dämon zum Laden entfernter Mail (POP2, POP3, APOP, IMAP)
+Summary(es.UTF-8):	Recolector de correo via POP/IMAP
+Summary(fr.UTF-8):	Démon de récupération du mail pour POP2, POP3, APOP, IMAP
+Summary(pl.UTF-8):	Zdalny demon pocztowy do protokołów POP2, POP3, APOP, IMAP
+Summary(pt.UTF-8):	Busca mensagens de um servidor usando POP ou IMAP
+Summary(ru.UTF-8):	Утилита извлечения почты с удаленной машины по протоколам POP/IMAP
+Summary(tr.UTF-8):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma yazılımı
+Summary(uk.UTF-8):	Утиліта отримання пошти з віддаленої машини по протоколам POP/IMAP
+Summary(zh_CN.UTF-8):	功能强大的 POP/IMAP 电子邮件收取守护进程
 Name:		fetchmail
 Version:	6.3.6
 Release:	2
@@ -116,12 +116,12 @@ RPOP, APOP, KPOP, всі IMAPи, ESMTP ETRN). Після отримання Fetc
 
 %package -n fetchmailconf
 Summary:	A GUI configurator for generating fetchmail configuration files
-Summary(es.UTF-8):   Configurador GUI interactivo por fetchmail
-Summary(fr.UTF-8):   GUI configurateur pour fetchmail
-Summary(pl.UTF-8):   Konfigurator GUI do fetchmaila
-Summary(pt.UTF-8):   Um configurador gráfico para a criação de arquivos de configuração para o fetchmail
-Summary(ru.UTF-8):   Графическая утилита для конфигурации предпочтений для fetchmail
-Summary(uk.UTF-8):   Графічна утиліта для конфігурації вподобань для fetchmail
+Summary(es.UTF-8):	Configurador GUI interactivo por fetchmail
+Summary(fr.UTF-8):	GUI configurateur pour fetchmail
+Summary(pl.UTF-8):	Konfigurator GUI do fetchmaila
+Summary(pt.UTF-8):	Um configurador gráfico para a criação de arquivos de configuração para o fetchmail
+Summary(ru.UTF-8):	Графическая утилита для конфигурации предпочтений для fetchmail
+Summary(uk.UTF-8):	Графічна утиліта для конфігурації вподобань для fetchmail
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
 Requires:	python
@@ -154,7 +154,7 @@ Fetchmailconf - це програма на Tcl/Tk для конфігураці�
 
 %package daemon
 Summary:	SysV init script for demonize fetchmail for sucking emails
-Summary(pl.UTF-8):   Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona
+Summary(pl.UTF-8):	Skrypt startowy SysV do uruchamiania systemowego fetchmaila jako demona
 Group:		Applications/System
 Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}-%{release}
