@@ -27,6 +27,7 @@ Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
+Patch0:		%{name}-pl.po-update.patch
 URL:		http://fetchmail.berlios.de/
 BuildRequires:	automake
 BuildRequires:	bison
@@ -168,6 +169,7 @@ demona.
 
 %prep
 %setup -q
+%patch0 -p1
 
 # to rebuild po/pl.gmo
 rm -f po/stamp-po
