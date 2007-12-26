@@ -6,6 +6,5 @@ Comment[pl]=Graficzne narzędzie konfiguracyjne dla Fechmaila
 Exec=fetchmailconf
 Terminal=false
 Type=Application
-Encoding=UTF-8
 Categories=Settings;
 # vi: encoding=utf-8
