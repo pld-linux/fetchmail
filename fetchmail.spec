@@ -16,13 +16,13 @@ Summary(tr.UTF-8):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma y
 Summary(uk.UTF-8):	Утиліта отримання пошти з віддаленої машини по протоколам POP/IMAP
 Summary(zh_CN.UTF-8):	功能强大的 POP/IMAP 电子邮件收取守护进程
 Name:		fetchmail
-Version:	6.3.8
-Release:	3
+Version:	6.3.9
+Release:	1
 License:	GPL
 Group:		Applications/Mail
 #Source0Download: http://developer.berlios.de/project/showfiles.php?group_id=1824
-Source0:	http://download2.berlios.de/fetchmail/%{name}-%{version}.tar.bz2
-# Source0-md5:	66b97500b0a1e3c0916b3b5314f597f5
+Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}.tar.lzma
+# Source0-md5:	813bb5a00eeab38c618175d4aee0f6c9
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
@@ -33,6 +33,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
+BuildRequires:	lzma >= 1:4.42
 %{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7l}
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	setup >= 2.3
@@ -169,7 +170,7 @@ demona.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 
 # to rebuild po/pl.gmo
 rm -f po/stamp-po
