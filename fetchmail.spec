@@ -29,11 +29,12 @@ Source4:	%{name}.logrotate
 Patch0:		%{name}-pl.po-update.patch
 URL:		http://fetchmail.berlios.de/
 BuildRequires:	automake
-BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-BuildRequires:	lzma >= 1:4.42
 %{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7l}
+BuildRequires:	python
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
