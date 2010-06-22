@@ -26,7 +26,6 @@ Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
-Patch0:		%{name}-pl.po-update.patch
 URL:		http://fetchmail.berlios.de/
 BuildRequires:	automake
 BuildRequires:	flex
@@ -36,7 +35,6 @@ BuildRequires:	python
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
-BuildConflicts:	libmd5-devel
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -171,14 +169,12 @@ demona.
 
 %prep
 %setup -q
-#%patch0 -p1
-
-# to rebuild po/pl.gmo
-rm -f po/stamp-po
 
 %build
 cp -f /usr/share/automake/config.* .
 %configure \
+	ac_cv_header_md5_h=no \
+	ac_cv_search_MD5Init=no \
 	--enable-nls \
 	--enable-RPA \
 	--enable-NTLM \
