@@ -15,13 +15,13 @@ Summary(tr.UTF-8):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma y
 Summary(uk.UTF-8):	Утиліта отримання пошти з віддаленої машини по протоколам POP/IMAP
 Summary(zh_CN.UTF-8):	功能强大的 POP/IMAP 电子邮件收取守护进程
 Name:		fetchmail
-Version:	6.3.17
-Release:	2
-License:	GPL
+Version:	6.3.18
+Release:	1
+License:	GPL v2 with OpenSSL exception
 Group:		Applications/Mail
 #Source0Download: http://developer.berlios.de/project/showfiles.php?group_id=1824
-Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}.tar.bz2
-# Source0-md5:	7b1d449ecddb6164e22c32854adc4a75
+Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}.tar.xz
+# Source0-md5:	268b11a9a609a7f668530be3d5de88f0
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
@@ -29,12 +29,14 @@ Source4:	%{name}.logrotate
 URL:		http://fetchmail.berlios.de/
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-devel >= 0.14.6
 %{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7l}
-BuildRequires:	python
-BuildRequires:	python-modules
+BuildRequires:	python >= 2.0
+BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	setup >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -224,7 +226,8 @@ fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc FEATURES README NEWS NOTES README.NTLM *.html FAQ
+# COPYING contains detailed description of licenses
+%doc COPYING FEATURES README NEWS NOTES README.NTLM *.html FAQ
 %attr(755,root,root) %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
 
