@@ -15,13 +15,13 @@ Summary(tr.UTF-8):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma y
 Summary(uk.UTF-8):	Утиліта отримання пошти з віддаленої машини по протоколам POP/IMAP
 Summary(zh_CN.UTF-8):	功能强大的 POP/IMAP 电子邮件收取守护进程
 Name:		fetchmail
-Version:	6.3.21
+Version:	6.3.26
 Release:	1
 License:	GPL v2 with OpenSSL exception
 Group:		Applications/Mail
 #Source0Download: http://developer.berlios.de/project/showfiles.php?group_id=1824
-Source0:	http://download.berlios.de/fetchmail/%{name}-%{version}.tar.xz
-# Source0-md5:	db75ef2058423599386add311bc954ce
+Source0:	http://downloads.sourceforge.net/fetchmail/%{name}-%{version}.tar.xz
+# Source0-md5:	61b66faad044afa26e142bb1791aa2b3
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
