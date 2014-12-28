@@ -29,7 +29,7 @@ Source4:	%{name}.logrotate
 URL:		http://fetchmail.berlios.de/
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	gettext-devel >= 0.14.6
+BuildRequires:	gettext-tools >= 0.14.6
 %{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7l}
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
