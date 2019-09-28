@@ -26,7 +26,7 @@ Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
-URL:		http://fetchmail.berlios.de/
+URL:		http://www.fetchmail.info/
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	gettext-tools >= 0.14.6
