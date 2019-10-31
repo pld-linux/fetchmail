@@ -19,7 +19,6 @@ Version:	6.4.1
 Release:	1
 License:	GPL v2 with OpenSSL exception
 Group:		Applications/Mail
-#Source0Download: http://developer.berlios.de/project/showfiles.php?group_id=1824
 Source0:	http://downloads.sourceforge.net/fetchmail/%{name}-%{version}.tar.xz
 # Source0-md5:	c2b836a919cdd4ec53b06b70e0aa3e63
 Source1:	%{name}conf.desktop
