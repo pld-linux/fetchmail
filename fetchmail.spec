@@ -1,7 +1,11 @@
 # TODO: kerberos5/gssapi support?
 #
 # Conditional build:
-%bcond_without	ssl	# build without SSL support
+%bcond_without	hesiod		# HESIOD support
+%bcond_with	kerberos5	# Kerberos V support
+%bcond_with	pop2		# POP2 support (obsolete)
+%bcond_without	opie		# OTP support via OPIE library
+%bcond_without	ssl		# SSL support
 #
 Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
 Summary(da.UTF-8):	Alsidig POP/IMAP post-afhentnings dæmon
@@ -15,23 +19,32 @@ Summary(tr.UTF-8):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma y
 Summary(uk.UTF-8):	Утиліта отримання пошти з віддаленої машини по протоколам POP/IMAP
 Summary(zh_CN.UTF-8):	功能强大的 POP/IMAP 电子邮件收取守护进程
 Name:		fetchmail
-Version:	6.4.20
-Release:	2
+Version:	6.4.38
+Release:	1
 License:	GPL v2 with OpenSSL exception
 Group:		Applications/Mail
-Source0:	http://downloads.sourceforge.net/fetchmail/%{name}-%{version}.tar.xz
-# Source0-md5:	01f1e16772933fc4833e7cf4f42284ba
+Source0:	https://downloads.sourceforge.net/fetchmail/%{name}-%{version}.tar.xz
+# Source0-md5:	0b833211c628f18607b82ae9add97c40
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
 Source4:	%{name}.logrotate
-URL:		http://www.fetchmail.info/
-BuildRequires:	automake
+URL:		https://www.fetchmail.info/
+BuildRequires:	automake >= 1:1.11
+BuildRequires:	bison
+# rst2html5
+BuildRequires:	docutils
 BuildRequires:	flex
-BuildRequires:	gettext-tools >= 0.14.6
-%{?with_ssl:BuildRequires:	openssl-devel >= 0.9.7l}
-BuildRequires:	python >= 2.0
-BuildRequires:	python-modules >= 2.0
+BuildRequires:	gettext-tools >= 0.19.8
+# or krb5-devel
+%{?with_kerberos5:BuildRequires:	heimdal-devel}
+%{?with_hesiod:BuildRequires:	hesiod-devel}
+# or wolfssl >= 5.6.2
+%{?with_ssl:BuildRequires:	openssl-devel >= 1.0.2u}
+%{?with_opie:BuildRequires:	opie-devel}
+BuildRequires:	pkgconfig
+BuildRequires:	python3 >= 1:3.7
+BuildRequires:	python3-modules >= 1:3.7
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	tar >= 1:1.22
@@ -125,8 +138,8 @@ Summary(ru.UTF-8):	Графическая утилита для конфигур
 Summary(uk.UTF-8):	Графічна утиліта для конфігурації вподобань для fetchmail
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
-Requires:	python
-Requires:	python-tkinter
+Requires:	python3 >= 1:3.7
+Requires:	python3-tkinter >= 1:3.7
 
 %description -n fetchmailconf
 A GUI configurator for generating fetchmail configuration file written
@@ -173,16 +186,21 @@ demona.
 
 %build
 cp -f /usr/share/automake/config.* .
+%{?with_opie:CPPFLAGS="%{rpmcppflags} -I/usr/include/security"}
 %configure \
 	ac_cv_header_md5_h=no \
 	ac_cv_search_MD5Init=no \
-	--enable-nls \
+	%{?with_pop2:--enable-POP2} \
 	--enable-RPA \
 	--enable-NTLM \
 	--enable-SDPS \
-	%{?with_ssl:--with-ssl=%{_prefix}} \
-	%{!?with_ssl:--without-ssl} \
-	--without-kerberos
+	--enable-nls \
+	%{?with_opie:--enable-opie} \
+	--with-gssapi%{!?with_kerberos5:=no} \
+	--with-hesiod=%{?with_hesiod:/usr}%{!?with_hesiod:no} \
+	--without-kerberos \
+	--with-kerberos5%{!?with_kerberos5:=no} \
+	--with-ssl=%{?with_ssl=/usr}}%{!?with_ssl:no}
 %{__make}
 
 %install
@@ -235,7 +253,8 @@ fi
 %attr(755,root,root) %{_bindir}/fetchmailconf
 %{_desktopdir}/fetchmailconf.desktop
 %{_mandir}/man1/fetchmailconf.1*
-%{py_sitescriptdir}/*.py[co]
+%{py3_sitescriptdir}/fetchmailconf.py
+%{py3_sitescriptdir}/__pycache__/fetchmailconf.cpython-*.py[co]
 
 %files daemon
 %defattr(644,root,root,755)
