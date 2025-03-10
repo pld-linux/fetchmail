@@ -20,7 +20,7 @@ Summary(uk.UTF-8):	Утиліта отримання пошти з віддал�
 Summary(zh_CN.UTF-8):	功能强大的 POP/IMAP 电子邮件收取守护进程
 Name:		fetchmail
 Version:	6.4.38
-Release:	1
+Release:	2
 License:	GPL v2 with OpenSSL exception
 Group:		Applications/Mail
 Source0:	https://downloads.sourceforge.net/fetchmail/%{name}-%{version}.tar.xz
