@@ -6,6 +6,7 @@
 %bcond_with	pop2		# POP2 support (obsolete)
 %bcond_without	opie		# OTP support via OPIE library
 %bcond_without	ssl		# SSL support
+%bcond_without	tests		# unit tests
 #
 Summary:	Remote mail fetch daemon for POP2, POP3, APOP, IMAP
 Summary(da.UTF-8):	Alsidig POP/IMAP post-afhentnings dæmon
@@ -19,12 +20,12 @@ Summary(tr.UTF-8):	POP2, POP3, APOP, IMAP protokolleri ile uzaktan mektup alma y
 Summary(uk.UTF-8):	Утиліта отримання пошти з віддаленої машини по протоколам POP/IMAP
 Summary(zh_CN.UTF-8):	功能强大的 POP/IMAP 电子邮件收取守护进程
 Name:		fetchmail
-Version:	6.4.38
-Release:	2
+Version:	6.6.9
+Release:	1
 License:	GPL v2 with OpenSSL exception
 Group:		Applications/Mail
 Source0:	https://downloads.sourceforge.net/fetchmail/%{name}-%{version}.tar.xz
-# Source0-md5:	0b833211c628f18607b82ae9add97c40
+# Source0-md5:	d35432a4c8421f038a7f51ca730a695e
 Source1:	%{name}conf.desktop
 Source2:	%{name}.sysconfig
 Source3:	%{name}.init
@@ -35,12 +36,12 @@ BuildRequires:	bison
 # rst2html5
 BuildRequires:	docutils
 BuildRequires:	flex
-BuildRequires:	gettext-tools >= 0.19.8
+BuildRequires:	gettext-tools >= 0.22.5
 # or krb5-devel
 %{?with_kerberos5:BuildRequires:	heimdal-devel}
 %{?with_hesiod:BuildRequires:	hesiod-devel}
-# or wolfssl >= 5.6.2
-%{?with_ssl:BuildRequires:	openssl-devel >= 1.0.2u}
+# or wolfssl >= 5.7.2
+%{?with_ssl:BuildRequires:	openssl-devel >= 3.0.9}
 %{?with_opie:BuildRequires:	opie-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	python3 >= 1:3.7
@@ -188,6 +189,7 @@ demona.
 cp -f /usr/share/automake/config.* .
 %{?with_opie:CPPFLAGS="%{rpmcppflags} -I/usr/include/security"}
 %configure \
+	PYTHON=%{__python3} \
 	ac_cv_header_md5_h=no \
 	ac_cv_search_MD5Init=no \
 	%{?with_pop2:--enable-POP2} \
@@ -200,8 +202,12 @@ cp -f /usr/share/automake/config.* .
 	--with-hesiod=%{?with_hesiod:/usr}%{!?with_hesiod:no} \
 	--without-kerberos \
 	--with-kerberos5%{!?with_kerberos5:=no} \
-	--with-ssl=%{?with_ssl=/usr}}%{!?with_ssl:no}
+	--with-ssl%{!?with_ssl:=no}
 %{__make}
+
+%if %{with tests}
+%{__make} check
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -216,11 +222,6 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/fetchmail
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/fetchmail
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/logrotate.d/%{name}
-
-sed 's,\.py,\.pyc,' fetchmailconf > $RPM_BUILD_ROOT%{_bindir}/fetchmailconf
-
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
-echo ".so fetchmail.1" > $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1
 
 > $RPM_BUILD_ROOT%{_sysconfdir}/fetchmailrc
 
